@@ -1,0 +1,19 @@
+{
+  "tracking": "Seguimiento",
+  "birds_eye_view": "Vista general",
+  "tracking_console": "Consola de seguimiento",
+  "waterfall_view": "Vista de cascada",
+  "hardware": "Hardware",
+  "rigs": "Radios",
+  "rotators": "Rotadores",
+  "cameras": "Cámaras",
+  "sdrs": "SDRs",
+  "satellites": "Satélites",
+  "orbital_sources": "Fuentes orbitales",
+  "groups": "Grupos",
+  "settings": "Configuración",
+  "preferences": "Preferencias",
+  "location": "Ubicación",
+  "maintenance": "Mantenimiento",
+  "about": "Acerca de"
+}

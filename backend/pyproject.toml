@@ -1,0 +1,280 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ground-station"
+version = "0.1.0"
+description = "Full-featured, open-source software solution for satellite tracking, radio communication, and data decoding"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = {text = "GPL-3.0-only"}
+authors = [
+    {name = "Efstratios Goudelis"}
+]
+keywords = [
+    "satellite",
+    "tracking",
+    "SDR",
+    "radio",
+    "amateur-radio",
+    "ham-radio",
+    "ground-station",
+    "space",
+    "telemetry"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Ham Radio",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+
+# Core dependencies
+dependencies = [
+    "aiofiles>=24.1.0",
+    "aiohappyeyeballs>=2.6.1",
+    "aiohttp>=3.13.3",
+    "aiosignal>=1.4.0",
+    "aiosqlite>=0.21.0",
+    "aiozeroconf>=0.1.8",
+    "alembic>=1.14.0",
+    "annotated-types>=0.7.0",
+    "apscheduler>=3.10.4",
+    "anyio>=4.8.0",
+    "attrs>=25.3.0",
+    "bcrypt>=4.3.0",
+    "bidict>=0.23.1",
+    "certifi>=2025.1.31",
+    "cffi>=2.0.0",
+    "charset-normalizer>=3.4.1",
+    "click>=8.1.8",
+    "colorlog>=6.9.0",
+    "construct>=2.10.70",
+    "cryptography>=46.0.7",
+    "fastapi>=0.135.3",
+    "frozenlist>=1.6.0",
+    "google-genai>=1.62.0",
+    "greenlet>=3.1.1",
+    "h11>=0.16.0",
+    "httpcore>=1.0.9",
+    "httpx>=0.28.1",
+    "idna>=3.10",
+    "ifaddr>=0.2.0",
+    "jplephem>=2.22",
+    "langdetect>=1.0.9",
+    "Mako>=1.3.12",
+    "MarkupSafe>=3.0.2",
+    "multidict>=6.4.3",
+    "netifaces>=0.11.0",
+    "numpy>=2.3.1",
+    "passlib>=1.7.4",
+    "Pillow>=12.2.0",
+    "propcache>=0.3.1",
+    "pycparser>=2.22",
+    "pydantic>=2.10.6",
+    "pydantic_core>=2.27.2",
+    "PyJWT>=2.12.0",
+    "pyrtlsdr>=0.3.0",
+    "python-engineio>=4.11.2",
+    "python-socketio>=5.12.1",
+    "reedsolo>=1.7.0",
+    "PyYAML>=6.0.2",
+    "requests>=2.32.3",
+    "scikit-learn>=1.6.1",
+    "scipy>=1.15.2",
+    "setproctitle>=1.3.6",
+    "setuptools>=80.9.0",
+    "sgp4>=2.24",
+    "simple-websocket>=1.1.0",
+    "skyfield>=1.53",
+    "sniffio>=1.3.1",
+    "sounddevice>=0.5.2",
+    "SQLAlchemy>=2.0.39",
+    "starlette>=0.49.1",
+    "typing_extensions>=4.12.2",
+    "urllib3>=2.7.0",
+    "uvicorn>=0.34.0",
+    "webrtcvad-wheels>=2.0.14",
+    "websocket-client>=1.8.0",
+    "websockets>=14.0",
+    "wsproto>=1.2.0",
+    "yarl>=1.20.0",
+    "zeroconf>=0.146.5",
+]
+
+# Optional dependency groups
+[project.optional-dependencies]
+dev = [
+    # Testing
+    "pytest>=9.0.3",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=6.0.0",
+    # Code quality
+    "black>=26.3.1",
+    "flake8>=7.1.1",
+    "mypy>=1.14.0",
+    "isort>=5.13.2",
+    # Type stubs
+    "types-PyYAML>=6.0.0",
+    "types-requests>=2.31.0",
+    # Pre-commit hooks
+    "pre-commit>=4.5.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/sgoudelis/ground-station"
+Repository = "https://github.com/sgoudelis/ground-station"
+Issues = "https://github.com/sgoudelis/ground-station/issues"
+Documentation = "https://github.com/sgoudelis/ground-station#readme"
+
+[project.scripts]
+ground-station = "app:main"
+
+# ============================================================================
+# Tool configurations
+# ============================================================================
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*"]
+exclude = ["tests*", "venv*", ".venv*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+skip_gitignore = true
+skip = [".venv", "venv", "build", "dist"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = false
+follow_imports = "normal"
+ignore_missing_imports = true
+exclude = [
+    "^venv/",
+    "^\\.venv/",
+    "^build/",
+    "^dist/",
+    "^htmlcov/",
+    "^tests/",
+]
+explicit_package_bases = true
+mypy_path = "."
+
+[[tool.mypy.overrides]]
+module = [
+    "db",
+    "db.*",
+]
+follow_imports = "skip"
+
+[[tool.mypy.overrides]]
+module = [
+    "tracker.*",
+    "tlesync.*",
+]
+disable_error_code = ["index", "var-annotated", "misc", "operator", "attr-defined", "arg-type", "assignment", "syntax"]
+
+[[tool.mypy.overrides]]
+module = [
+    "skyfield.*",
+    "sgp4.*",
+    "pyrtlsdr.*",
+    "sounddevice.*",
+    "zeroconf.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--tb=short",
+    "--cov=crud",
+    "--cov=server",
+    "--cov=controllers",
+    "--cov=common",
+    "--cov=tlesync",
+    "--cov=tracking",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml",
+]
+markers = [
+    "asyncio: mark test as async",
+    "slow: mark test as slow running",
+    "integration: mark test as integration test",
+    "unit: mark test as unit test",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "*/tests/*",
+    "*/venv/*",
+    "*/site-packages/*",
+    "*/__pycache__/*",
+    "*/migrations/*",
+    "setup.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "@abstractmethod",
+]

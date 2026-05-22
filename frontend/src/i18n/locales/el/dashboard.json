@@ -1,0 +1,106 @@
+{
+  "layout": {
+    "done_editing": "Ολοκλήρωση επεξεργασίας",
+    "edit_layout": "Επεξεργασία διάταξης"
+  },
+  "connection": {
+    "connection_failed": "Αποτυχία Σύνδεσης",
+    "network_error": "Σφάλμα δικτύου",
+    "reconnecting": "Επανασύνδεση",
+    "attempt": "Προσπάθεια {{count}}",
+    "connecting": "Σύνδεση",
+    "establishing_connection": "Δημιουργία σύνδεσης"
+  },
+  "version_update": {
+    "new_version_available": "Διαθέσιμη Νέα Εκδοση",
+    "version": "Εκδοση {{version}}",
+    "refreshing_in": "Ανανέωση σε {{seconds}}δ...",
+    "refreshing_now": "Ανανέωση τώρα...",
+    "cancel": "ΑΚΥΡΩΣΗ",
+    "refresh_now": "Ανανέωση Τώρα"
+  },
+  "target_popover": {
+    "sections": {
+      "basic_information": "Βασικές Πληροφορίες",
+      "current_position": "Τρέχουσα Θέση",
+      "mission_information": "Πληροφορίες Αποστολής"
+    },
+    "norad_id": "NORAD ID:",
+    "status": "Κατάσταση:",
+    "operator": "Φορέας:",
+    "countries": "Χώρες:",
+    "latitude": "Γεωγραφικό πλάτος:",
+    "longitude": "Γεωγραφικό μήκος:",
+    "altitude": "Υψόμετρο:",
+    "velocity": "Ταχύτητα:",
+    "azimuth": "Αζιμούθιο:",
+    "elevation": "Υψωση:",
+    "launched": "Εκτοξεύτηκε:",
+    "deployed": "Αναπτύχθηκε:",
+    "decayed": "Αποσυντέθηκε:",
+    "geostationary": "Γεωστατικός:",
+    "website": "Ιστοσελίδα:",
+    "yes": "Ναι",
+    "no": "Οχι",
+    "na": "Μ/Δ"
+  },
+  "version_info": {
+    "version": "Εκδοση:",
+    "build_date": "Ημερομηνία Build:",
+    "git_commit": "Git Commit:",
+    "unknown": "Αγνωστο",
+    "loading": "Φόρτωση έκδοσης...",
+    "unavailable": "Εκδοση μη διαθέσιμη"
+  },
+  "connection_popover": {
+    "network_connected_ws": "Δίκτυο: Συνδεδεμένο (WebSocket)",
+    "network_connected_polling": "Δίκτυο: Συνδεδεμένο (Polling)",
+    "network_connecting": "Δίκτυο: Σύνδεση...",
+    "network_disconnected": "Δίκτυο: Αποσυνδεδεμένο",
+    "network_unknown": "Δίκτυο: Αγνωστο",
+    "connection_status": "Κατάσταση Σύνδεσης",
+    "transport": "Μεταφορά:",
+    "duration": "Διάρκεια:",
+    "reconnecting": "Επανασύνδεση... (Προσπάθεια: {{count}})",
+    "current_traffic_rate": "Τρέχων Ρυθμός Κίνησης",
+    "upload": "Μεταφόρτωση:",
+    "download": "Λήψη:",
+    "msgs_per_second": "{{count}} μηνυμ/δ",
+    "application_level": "Επίπεδο Εφαρμογής (Συνολικά Περιόδου)",
+    "sent": "Απεσταλμένα:",
+    "received": "Ληφθέντα:",
+    "messages": "{{count}} μηνύματα",
+    "transport_upgrades": "Αναβαθμίσεις Μεταφοράς:",
+    "audio_buffer": "Ενδιάμεση Μνήμη Ηχου",
+    "browser_buffer_length": "Μήκος Ενδιάμεσης Μνήμης Περιηγητή:"
+  },
+  "hardware_popover": {
+    "socket_disconnected": "Socket: Αποσυνδεδεμένο",
+    "rig_disconnected": "Ραδιόφωνο: Αποσυνδεδεμένο",
+    "rig_tracking": "Ραδιόφωνο: Παρακολούθηση ({{frequency}} Hz)",
+    "rig_stopped": "Ραδιόφωνο: Σταματημένο",
+    "rig_connected": "Ραδιόφωνο: Συνδεδεμένο",
+    "rotator_disconnected": "Περιστροφέας: Αποσυνδεδεμένος",
+    "rotator_tracking": "Περιστροφέας: Παρακολούθηση (Αζ: {{az}}°, Υψ: {{el}}°)",
+    "rotator_slewing": "Περιστροφέας: Περιστροφή (Αζ: {{az}}°, Υψ: {{el}}°)",
+    "rotator_stopped": "Περιστροφέας: Σταματημένος (Αζ: {{az}}°, Υψ: {{el}}°)",
+    "rotator_connected": "Περιστροφέας: Συνδεδεμένος (Αζ: {{az}}°, Υψ: {{el}}°)"
+  },
+  "orbital_sync_popover": {
+    "syncing": "Συγχρονισμός: {{progress}}%",
+    "sync_failed": "Αποτυχία Συγχρονισμού: {{error}}",
+    "last_sync": "Τελευταίος συγχρονισμός: {{date}}",
+    "satellite_orbital_sync": "Συγχρονισμός Τροχιακών Δεδομένων Δορυφόρων",
+    "orbital_sync_status": "Κατάσταση Συγχρονισμού Τροχιακών Δεδομένων",
+    "status": "Κατάσταση",
+    "idle": "αδρανής",
+    "progress": "Πρόοδος: {{progress}}%",
+    "last_update": "Τελευταία Ενημέρωση",
+    "na": "Μ/Δ",
+    "statistics": "Στατιστικά",
+    "satellites": "Δορυφόροι: {{count}}",
+    "transmitters": "Πομποδέκτες: {{count}}",
+    "groups": "Ομάδες: {{count}}",
+    "errors": "Σφάλματα ({{count}})"
+  }
+}

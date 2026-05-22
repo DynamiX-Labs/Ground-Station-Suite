@@ -1,0 +1,122 @@
+{
+  "app_name": "DynamiX-Labs Ground Station",
+  "loading": "Loading...",
+  "error": "Error",
+  "success": "Success",
+  "save": "Save",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "edit": "Edit",
+  "add": "Add",
+  "close": "Close",
+  "confirm": "Confirm",
+  "yes": "Yes",
+  "no": "No",
+  "search": "Search",
+  "filter": "Filter",
+  "actions": "Actions",
+  "name": "Name",
+  "description": "Description",
+  "status": "Status",
+  "connected": "Connected",
+  "disconnected": "Disconnected",
+  "online": "Online",
+  "offline": "Offline",
+  "notifications": {
+    "connection": {
+      "connected_to_backend": "Connected to backend",
+      "reconnecting_to_backend": "Reconnecting to backend",
+      "attempt": "Attempt {{attempt}}",
+      "connection_error": "Connection error",
+      "lost_connection": "Lost connection to backend"
+    },
+    "sync": {
+      "tle_sync_complete": "Orbital data sync complete!",
+      "new_items": "New: {{satellites}} satellites, {{transmitters}} transmitters",
+      "modified_items": "Modified: {{satellites}} satellites, {{transmitters}} transmitters",
+      "removed_items": "Removed: {{satellites}} satellites, {{transmitters}} transmitters",
+      "no_changes": "No changes detected"
+    },
+    "rotator": {
+      "connected": "Rotator connected",
+      "disconnected": "Rotator disconnected"
+    },
+    "radio": {
+      "connected": "Radio connected",
+      "disconnected": "Radio disconnected"
+    },
+    "tracking": {
+      "elevation_below_horizon": "Elevation of target below the horizon",
+      "azimuth_out_of_bounds": "Target azimuth out of bounds",
+      "below_min_elevation": "Target below minimum elevation",
+      "above_max_elevation": "Target above maximum elevation",
+      "below_min_azimuth": "Target below minimum azimuth",
+      "above_max_azimuth": "Target above maximum azimuth",
+      "satellite_changed": "Target satellite changed",
+      "satellite_info": "{{name}} (NORAD {{noradId}})"
+    },
+    "decoder": {
+      "output_received": "Decoder output received"
+    }
+  },
+  "humanize": {
+    "bytes": {
+      "bytes": "Bytes",
+      "kb": "KB",
+      "mb": "MB",
+      "gb": "GB",
+      "tb": "TB"
+    },
+    "date": {
+      "just_now": "Just now",
+      "minute_ago": "{{count}} minute ago",
+      "minutes_ago": "{{count}} minutes ago",
+      "hour_ago": "{{count}} hour ago",
+      "hours_ago": "{{count}} hours ago",
+      "day_ago": "{{count}} day ago",
+      "days_ago": "{{count}} days ago",
+      "week_ago": "{{count}} week ago",
+      "weeks_ago": "{{count}} weeks ago",
+      "month_ago": "{{count}} month ago",
+      "months_ago": "{{count}} months ago",
+      "year_ago": "{{count}} year ago",
+      "years_ago": "{{count}} years ago",
+      "never": "Never"
+    }
+  },
+  "satellite_status": {
+    "alive": "Alive",
+    "dead": "Dead",
+    "re_entered": "Re-entered",
+    "future": "Future",
+    "not_available": "n/a"
+  },
+  "transmitter_status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "invalid": "Invalid"
+  },
+  "map_settings": {
+    "orbit_projection_time": "Orbit Projection Time",
+    "tile_layer": "Tile Layer",
+    "time_options": {
+      "1_hour": "1 Hour",
+      "2_hours": "2 Hours",
+      "4_hours": "4 Hours",
+      "8_hours": "8 Hours",
+      "12_hours": "12 Hours",
+      "24_hours": "24 Hours"
+    },
+    "satellite_coverage": "Satellite coverage",
+    "past_orbit_path": "Past orbit path plotting",
+    "future_orbit_path": "Future orbit path plotting",
+    "show_sun": "Show the sun",
+    "show_moon": "Show the moon",
+    "day_night_separator": "Day/night separator line",
+    "satellite_tooltip": "Satellite tooltip",
+    "coordinate_grid": "Coordinate grid",
+    "footprint_color": "Footprint color",
+    "past_orbit_color": "Past orbit line color",
+    "future_orbit_color": "Future orbit line color"
+  }
+}

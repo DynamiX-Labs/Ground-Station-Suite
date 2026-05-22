@@ -1,0 +1,116 @@
+{
+  "app_name": "Estación Terrestre",
+  "loading": "Cargando...",
+  "error": "Error",
+  "success": "Éxito",
+  "save": "GUARDAR",
+  "cancel": "CANCELAR",
+  "delete": "ELIMINAR",
+  "edit": "EDITAR",
+  "add": "AGREGAR",
+  "close": "CERRAR",
+  "confirm": "CONFIRMAR",
+  "yes": "Sí",
+  "no": "No",
+  "search": "Buscar",
+  "filter": "Filtrar",
+  "actions": "Acciones",
+  "name": "Nombre",
+  "description": "Descripción",
+  "status": "Estado",
+  "connected": "Conectado",
+  "disconnected": "Desconectado",
+  "online": "En línea",
+  "offline": "Fuera de línea",
+  "notifications": {
+    "connection": {
+      "connected_to_backend": "Conectado al backend",
+      "reconnecting_to_backend": "Reconectando al backend",
+      "attempt": "Intento {{attempt}}",
+      "connection_error": "Error de conexión",
+      "lost_connection": "Conexión perdida con el backend"
+    },
+    "sync": {
+      "tle_sync_complete": "¡Sincronización de datos orbitales completa!",
+      "new_items": "Nuevos: {{satellites}} satélites, {{transmitters}} transmisores",
+      "modified_items": "Modificados: {{satellites}} satélites, {{transmitters}} transmisores",
+      "removed_items": "Eliminados: {{satellites}} satélites, {{transmitters}} transmisores",
+      "no_changes": "No se detectaron cambios"
+    },
+    "rotator": {
+      "connected": "Rotador conectado",
+      "disconnected": "Rotador desconectado"
+    },
+    "radio": {
+      "connected": "Radio conectada",
+      "disconnected": "Radio desconectada"
+    },
+    "tracking": {
+      "elevation_below_horizon": "Elevación del objetivo bajo el horizonte",
+      "azimuth_out_of_bounds": "Azimut del objetivo fuera de límites",
+      "below_min_elevation": "Objetivo por debajo de la elevación mínima",
+      "satellite_changed": "Satélite objetivo cambiado",
+      "satellite_info": "{{name}} (NORAD {{noradId}})"
+    }
+  },
+  "humanize": {
+    "bytes": {
+      "bytes": "Bytes",
+      "kb": "KB",
+      "mb": "MB",
+      "gb": "GB",
+      "tb": "TB"
+    },
+    "date": {
+      "just_now": "Justo ahora",
+      "minute_ago": "hace {{count}} minuto",
+      "minutes_ago": "hace {{count}} minutos",
+      "hour_ago": "hace {{count}} hora",
+      "hours_ago": "hace {{count}} horas",
+      "day_ago": "hace {{count}} día",
+      "days_ago": "hace {{count}} días",
+      "week_ago": "hace {{count}} semana",
+      "weeks_ago": "hace {{count}} semanas",
+      "month_ago": "hace {{count}} mes",
+      "months_ago": "hace {{count}} meses",
+      "year_ago": "hace {{count}} año",
+      "years_ago": "hace {{count}} años",
+      "never": "Nunca"
+    }
+  },
+  "satellite_status": {
+    "alive": "Activo",
+    "dead": "Inactivo",
+    "re_entered": "Reingresado",
+    "future": "Futuro",
+    "not_available": "n/d"
+  },
+  "transmitter_status": {
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "invalid": "Inválido"
+  },
+  "map_settings": {
+    "orbit_projection_time": "Tiempo de proyección de órbita",
+    "tile_layer": "Capa de mosaicos",
+    "time_options": {
+      "1_hour": "1 hora",
+      "2_hours": "2 horas",
+      "4_hours": "4 horas",
+      "8_hours": "8 horas",
+      "12_hours": "12 horas",
+      "24_hours": "24 horas"
+    },
+    "satellite_coverage": "Cobertura del satélite",
+    "past_orbit_path": "Trazado de órbita pasada",
+    "future_orbit_path": "Trazado de órbita futura",
+    "show_sun": "Mostrar el sol",
+    "show_moon": "Mostrar la luna",
+    "day_night_separator": "Línea separadora día/noche",
+    "satellite_tooltip": "Información del satélite",
+    "coordinate_grid": "Cuadrícula de coordenadas",
+    "footprint_color": "Color de la huella",
+    "past_orbit_color": "Color de línea de órbita pasada",
+    "future_orbit_color": "Color de línea de órbita futura"
+  }
+}

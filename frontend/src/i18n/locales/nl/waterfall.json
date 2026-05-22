@@ -1,0 +1,123 @@
+{
+  "title": "Waterfall instellingen",
+  "main_title": "Waterfall & Spectrum",
+  "toolbar": {
+    "start_streaming": "Start Streaming",
+    "stop_streaming": "Stop Streaming",
+    "toggle_left_panel": "Schakel linkerpaneel in/uit",
+    "toggle_right_panel": "Schakel rechterpaneel in/uit",
+    "toggle_auto_db": "Schakel automatisch dB-bereik in/uit",
+    "auto_scale_once": "Schaal dB-bereik automatisch één keer",
+    "signal_strength_presets": "Signaalsterkte voorinstellingen",
+    "preset_strong_signals": "Sterke Signalen",
+    "preset_medium_signals": "Gemiddelde Signalen",
+    "preset_weak_signals": "Zwakke Signalen",
+    "toggle_fullscreen": "Schakel volledig scherm in/uit",
+    "zoom_in": "Inzoomen",
+    "zoom_out": "Uitzoomen",
+    "reset_zoom": "Reset zoom",
+    "toggle_rotator_lines": "Schakel rotator gebeurtenis stippellijnen in/uit",
+    "toggle_vfo": "Schakel VFO {{number}} in/uit",
+    "fft_overflow": "FFT update snelheid overflow — inkomende updates worden vertraagd",
+    "bookmark_source_user_defined": "User defined",
+    "bookmark_source_satnogs": "SATNOGS",
+    "bookmark_source_gr_satellites": "gr-satellites",
+    "bookmark_source_satdump": "Satdump"
+  },
+  "frequency": {
+    "title": "Frequentieregeling",
+    "go_to_transmitter": "Ga naar zender",
+    "no_frequency_selected": "[geen frequentie geselecteerd]",
+    "select_transmitter": "selecteer een zender",
+    "frequency_offset": "Frequentie Offset",
+    "no_frequency_offset": "[geen frequentie offset]",
+    "manual": "Handmatig",
+    "select_offset": "selecteer een offset",
+    "manual_offset_hz": "Handmatige Offset (Hz)",
+    "offsets": {
+      "dk5av_x_band": "DK5AV X-Band (-6800MHz)",
+      "ham_it_up": "Ham-it-Up (+125MHz)",
+      "ku_lnb_10700": "Ku LNB (-10700MHz)",
+      "ku_lnb_9750": "Ku LNB (-9750MHz)",
+      "mmds_s_band": "MMDS S-Band (-1998MHz)",
+      "spyverter": "SpyVerter (+120MHz)"
+    }
+  },
+  "sdr": {
+    "title": "SDR",
+    "sdr_label": "SDR",
+    "no_sdr_selected": "[geen SDR geselecteerd]",
+    "local_sdrs": "Lokale SDRs",
+    "remote_sdrs": "Externe SDRs",
+    "other_sdrs": "Andere SDRs",
+    "gain_db": "Versterking (dB)",
+    "no_gain_selected": "[geen versterking geselecteerd]",
+    "sample_rate": "Sample Rate",
+    "no_rate_selected": "[geen rate geselecteerd]",
+    "antenna": "Antenne",
+    "no_antenna_selected": "[geen antenne geselecteerd]",
+    "enable_bias_t": "Schakel Bias T in",
+    "enable_tuner_agc": "Schakel tuner AGC in",
+    "enable_agc": "Schakel AGC in",
+    "enable_rtl_agc": "Schakel RTL AGC in",
+    "refresh_params": "Refresh SDR params"
+  },
+  "fft": {
+    "title": "FFT",
+    "fft_size": "FFT Grootte",
+    "fft_window": "FFT Venster",
+    "fft_averaging": "FFT Middeling",
+    "averaging_none": "Geen",
+    "averaging_samples": "{{count}} samples",
+    "color_map": "Kleurenschaal"
+  },
+  "vfo": {
+    "title": "VFO Bediening",
+    "vfo_number": "VFO {{number}}",
+    "active": "Actief",
+    "listen": "Luisteren",
+    "step_size": "Stapgrootte",
+    "modulation": "Modulatie",
+    "bandwidth": "Bandbreedte",
+    "custom": "Aangepast",
+    "squelch": "Squelch",
+    "volume": "Volume",
+    "transcribe": "Transcriberen",
+    "configure_gemini": "(Configureer Gemini API in Instellingen)",
+    "transcription_settings": "Transcriptie-instellingen",
+    "language": "Taal",
+    "modes": {
+      "none": "Geen",
+      "am": "AM",
+      "fm": "FM",
+      "fm_stereo": "FM Stereo",
+      "lsb": "LSB",
+      "usb": "USB",
+      "cw": "CW"
+    },
+    "languages": {
+      "none": "Geen Vertaling",
+      "auto": "Automatisch detecteren",
+      "en": "Engels",
+      "el": "Grieks",
+      "es": "Spaans",
+      "fr": "Frans",
+      "de": "Duits",
+      "it": "Italiaans",
+      "pt": "Portugees",
+      "pt-BR": "Portugees (Brazilië)",
+      "ru": "Russisch",
+      "uk": "Oekraïens",
+      "ja": "Japans",
+      "zh": "Chinees",
+      "ar": "Arabisch"
+    }
+  },
+  "error_dialog": {
+    "title": "Fout Opgetreden",
+    "close": "Sluiten"
+  },
+  "statusbar": {
+    "stopped": "gestopt"
+  }
+}

@@ -1,0 +1,307 @@
+kind: pipeline
+type: docker
+name: default
+
+timeout: 360
+
+platform:
+  os: linux
+  arch: arm64
+
+trigger:
+  event:
+    - push
+    - pull_request
+    - tag
+    - custom
+
+clone:
+  disable: true
+
+steps:
+  - name: clone
+    image: plugins/git
+    settings:
+      depth: 50
+      skip_verify: true
+      tags: true
+
+  - name: build-and-deploy-amd64
+    image: docker:cli
+    depends_on:
+      - clone
+    environment:
+      DOCKER_HOST: tcp://192.168.60.98:2375
+    when:
+      event:
+        - push
+      branch:
+        - main
+    commands:
+      # Extract version with proper debugging
+      - VERSION_BASE=$(cat backend/server/version.json | grep -o '"version"[[:space:]]*:[[:space:]]*"[^"]*"' | cut -d'"' -f4)
+      - echo "Extracted VERSION_BASE=$VERSION_BASE"
+
+      # Get git hash
+      - GIT_SHA=$(git rev-parse --short HEAD)
+      - echo "Extracted GIT_SHA=$GIT_SHA"
+
+      # Set environment type
+      - if [ "$DRONE_BRANCH" = "main" ]; then ENV_TYPE="production"; else ENV_TYPE="development"; fi
+      - echo "ENV_TYPE=$ENV_TYPE"
+
+      # Get build date
+      - BUILD_DATE=$(date -u +'%Y%m%d')
+      - echo "BUILD_DATE=$BUILD_DATE"
+
+      # Make a full version string
+      - FULL_VERSION=$VERSION_BASE-$DRONE_BRANCH-$GIT_SHA
+      - echo "FULL_VERSION=$FULL_VERSION"
+
+      # Build the new image for amd64 with build args
+      - docker build --platform linux/amd64 --build-arg GS_ENVIRONMENT=$ENV_TYPE --build-arg GIT_COMMIT=$GIT_SHA --build-arg BUILD_DATE=$BUILD_DATE --build-arg BUILD_VERSION=$FULL_VERSION -t ground-station:$FULL_VERSION .
+
+      # Tag the image for Docker Hub
+      - docker tag ground-station:$FULL_VERSION sgoudelis/ground-station:$FULL_VERSION
+      - docker tag ground-station:$FULL_VERSION sgoudelis/ground-station:latest
+      - docker tag ground-station:$FULL_VERSION sgoudelis/ground-station:$ENV_TYPE-latest
+
+      # Stop and remove the existing container if it exists
+      - docker rm -f ground-station-prod || true
+
+      # Run the new container with the versioned image (using host networking for mDNS discovery)
+      - docker run -d --network host --device=/dev/bus/usb --restart=unless-stopped --privileged --name ground-station-prod -v /media/pool1/volumes/ground-station-data:/app/backend/data -e GS_ENVIRONMENT=$ENV_TYPE -e GR_BUFFER_TYPE=vmcirc_mmap_tmpfile sgoudelis/ground-station:$FULL_VERSION
+
+      # Check that it's running
+      - sleep 5
+      - |
+        CONTAINER_STATUS=$(docker inspect --format='{{.State.Status}}' ground-station-prod)
+        if [ "$CONTAINER_STATUS" != "running" ]; then
+          echo "Container is not running: $CONTAINER_STATUS"
+          docker logs ground-station-prod
+          exit 1
+        fi
+
+      # Display container info and version
+      - echo "✅ New container version $FULL_VERSION ($ENV_TYPE) is running on AMD64 host port 7000"
+      - docker ps | grep ground-station-prod
+
+  - name: build-and-deploy-rpi5
+    image: docker:cli
+    depends_on:
+      - clone
+    environment:
+      DOCKER_HOST: tcp://192.168.60.52:2375
+    when:
+      event:
+        - push
+      branch:
+        - main
+    commands:
+      # Extract version with proper debugging
+      - VERSION_BASE=$(cat backend/server/version.json | grep -o '"version"[[:space:]]*:[[:space:]]*"[^"]*"' | cut -d'"' -f4)
+      - echo "Extracted VERSION_BASE=$VERSION_BASE"
+
+      # Get git hash
+      - GIT_SHA=$(git rev-parse --short HEAD)
+      - echo "Extracted GIT_SHA=$GIT_SHA"
+
+      # Set environment type
+      - if [ "$DRONE_BRANCH" = "main" ]; then ENV_TYPE="production"; else ENV_TYPE="development"; fi
+      - echo "ENV_TYPE=$ENV_TYPE"
+
+      # Get build date
+      - BUILD_DATE=$(date -u +'%Y%m%d')
+      - echo "BUILD_DATE=$BUILD_DATE"
+
+      # Make a full version string
+      - FULL_VERSION=$VERSION_BASE-$DRONE_BRANCH-$GIT_SHA
+      - echo "FULL_VERSION=$FULL_VERSION"
+
+      # Build the new image for arm64 (RPi5) with build args
+      - docker build --platform linux/arm64 --build-arg GS_ENVIRONMENT=$ENV_TYPE --build-arg GIT_COMMIT=$GIT_SHA --build-arg BUILD_DATE=$BUILD_DATE --build-arg BUILD_VERSION=$FULL_VERSION -t ground-station:$FULL_VERSION .
+
+      # Tag the image
+      - docker tag ground-station:$FULL_VERSION sgoudelis/ground-station:$FULL_VERSION-arm64
+      - docker tag ground-station:$FULL_VERSION sgoudelis/ground-station:latest-arm64
+      - docker tag ground-station:$FULL_VERSION sgoudelis/ground-station:$ENV_TYPE-latest-arm64
+
+      # Stop and remove the existing container if it exists
+      - docker rm -f ground-station-prod || true
+
+      # Run the new container with the versioned image (use local image, not registry, with host networking for mDNS discovery)
+      - docker run -d --network host --device=/dev/bus/usb --restart=unless-stopped --privileged --name ground-station-prod -v /home/sgoudelis/ground-station-data:/app/backend/data -e GS_ENVIRONMENT=$ENV_TYPE -e GR_BUFFER_TYPE=vmcirc_mmap_tmpfile ground-station:$FULL_VERSION
+
+      # Check that it's running
+      - sleep 5
+      - |
+        CONTAINER_STATUS=$(docker inspect --format='{{.State.Status}}' ground-station-prod)
+        if [ "$CONTAINER_STATUS" != "running" ]; then
+          echo "Container is not running: $CONTAINER_STATUS"
+          docker logs ground-station-prod
+          exit 1
+        fi
+
+      # Display container info and version
+      - echo "✅ New container version $FULL_VERSION ($ENV_TYPE) is running on RPi5 host port 7000"
+      - docker ps | grep ground-station-prod
+
+  - name: verify-docker-connection
+    image: docker:cli
+    environment:
+      DOCKER_HOST: tcp://192.168.60.98:2375
+    commands:
+      - docker info
+      - echo "Docker connection verified"
+    depends_on:
+      - clone
+    when:
+      event:
+        - tag
+
+  - name: docker-auth
+    image: docker:cli
+    environment:
+      DOCKER_HOST: tcp://192.168.60.98:2375
+      DOCKER_USERNAME:
+        from_secret: docker_username
+      DOCKER_PASSWORD:
+        from_secret: docker_password
+    commands:
+      - echo "Attempting Docker Hub authentication..."
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - echo "✅ Docker Hub authentication successful"
+    depends_on:
+      - verify-docker-connection
+    when:
+      event:
+        - tag
+
+  - name: ghcr-auth
+    image: docker:cli
+    environment:
+      DOCKER_HOST: tcp://192.168.60.98:2375
+      GHCR_TOKEN:
+        from_secret: ghcr_token
+    commands:
+      - echo "Authenticating to GitHub Container Registry..."
+      - echo "$GHCR_TOKEN" | docker login ghcr.io -u sgoudelis --password-stdin
+      - echo "✅ GHCR authentication successful"
+    depends_on:
+      - docker-auth
+
+  # AMD64 Build
+  - name: build-amd64
+    image: plugins/docker:21
+    timeout: 240
+    settings:
+      username: sgoudelis
+      password:
+        from_secret: ghcr_token
+      registry: ghcr.io
+      repo: ghcr.io/sgoudelis/ground-station
+      tags:
+        - "${DRONE_TAG##v}-amd64"
+        - latest-amd64
+      dockerfile: Dockerfile
+      platforms:
+        - linux/amd64
+      build_args:
+        - GS_ENVIRONMENT=production
+        - "GIT_COMMIT=${DRONE_COMMIT_SHA}"
+        - "BUILD_DATE=${DRONE_BUILD_STARTED}"
+        - "BUILD_VERSION=${DRONE_TAG##v}"
+      buildkit: true
+      cache_from:
+        - ghcr.io/sgoudelis/ground-station:latest-amd64
+        - ghcr.io/sgoudelis/ground-station:latest
+      pull: true
+      daemon_off: true
+      custom_dns: 8.8.8.8
+    environment:
+      DOCKER_HOST: tcp://192.168.60.98:2375
+    depends_on:
+      - ghcr-auth
+    when:
+      event:
+        - tag
+
+  # ARM64 Build (on remote Jetson Orin)
+  - name: build-arm64
+    image: plugins/docker:21
+    timeout: 480
+    settings:
+      username: sgoudelis
+      password:
+        from_secret: ghcr_token
+      registry: ghcr.io
+      repo: ghcr.io/sgoudelis/ground-station
+      tags:
+        - "${DRONE_TAG##v}-arm64"
+        - latest-arm64
+      dockerfile: Dockerfile
+      platforms:
+        - linux/arm64
+      build_args:
+        - GS_ENVIRONMENT=production
+        - "GIT_COMMIT=${DRONE_COMMIT_SHA}"
+        - "BUILD_DATE=${DRONE_BUILD_STARTED}"
+        - "BUILD_VERSION=${DRONE_TAG##v}"
+      buildkit: true
+      cache_from:
+        - ghcr.io/sgoudelis/ground-station:latest-arm64
+        - ghcr.io/sgoudelis/ground-station:latest
+      pull: true
+      daemon_off: true
+      custom_dns: 8.8.8.8
+    environment:
+      DOCKER_HOST: tcp://192.168.60.51:2375
+    depends_on:
+      - ghcr-auth
+    when:
+      event:
+        - tag
+
+  # Create manifest for multi-arch
+  - name: manifest
+    image: plugins/manifest
+    settings:
+      username:
+        from_secret: ghcr_username
+      password:
+        from_secret: ghcr_token
+      target: "ghcr.io/sgoudelis/ground-station:${DRONE_TAG##v}"
+      template: "ghcr.io/sgoudelis/ground-station:${DRONE_TAG##v}-ARCH"
+      platforms:
+        - linux/amd64
+        - linux/arm64
+    depends_on:
+      - build-amd64
+      - build-arm64
+    when:
+      event:
+        - tag
+
+  # Create latest manifest
+  - name: manifest-latest
+    image: plugins/manifest
+    settings:
+      username:
+        from_secret: ghcr_username
+      password:
+        from_secret: ghcr_token
+      target: ghcr.io/sgoudelis/ground-station:latest
+      template: ghcr.io/sgoudelis/ground-station:latest-ARCH
+      platforms:
+        - linux/amd64
+        - linux/arm64
+    depends_on:
+      - manifest
+    when:
+      event:
+        - tag
+
+volumes:
+  - name: docker-sock
+    host:
+      path: /var/run/docker.sock

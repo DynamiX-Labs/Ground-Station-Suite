@@ -1,0 +1,19 @@
+{
+  "tracking": "Παρακολούθηση",
+  "birds_eye_view": "Πανοραμική προβολή",
+  "tracking_console": "Κονσόλα παρακολούθησης",
+  "waterfall_view": "Προβολή καταρράκτη",
+  "hardware": "Υλικό",
+  "rigs": "Πομποδέκτες",
+  "rotators": "Περιστροφείς",
+  "cameras": "Κάμερες",
+  "sdrs": "SDRs",
+  "satellites": "Δορυφόροι",
+  "orbital_sources": "Πηγές τροχιακών δεδομένων",
+  "groups": "Ομάδες",
+  "settings": "Ρυθμίσεις",
+  "preferences": "Προτιμήσεις",
+  "location": "Τοποθεσία",
+  "maintenance": "Συντήρηση",
+  "about": "Σχετικά"
+}

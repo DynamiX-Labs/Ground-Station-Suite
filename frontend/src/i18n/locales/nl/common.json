@@ -1,0 +1,116 @@
+{
+  "app_name": "Grondstation",
+  "loading": "Laden...",
+  "error": "Fout",
+  "success": "Succes",
+  "save": "OPSLAAN",
+  "cancel": "ANNULEREN",
+  "delete": "VERWIJDEREN",
+  "edit": "BEWERKEN",
+  "add": "TOEVOEGEN",
+  "close": "SLUITEN",
+  "confirm": "BEVESTIGEN",
+  "yes": "Ja",
+  "no": "Nee",
+  "search": "Zoeken",
+  "filter": "Filteren",
+  "actions": "Acties",
+  "name": "Naam",
+  "description": "Beschrijving",
+  "status": "Status",
+  "connected": "Verbonden",
+  "disconnected": "Niet verbonden",
+  "online": "Online",
+  "offline": "Offline",
+  "notifications": {
+    "connection": {
+      "connected_to_backend": "Verbonden met backend",
+      "reconnecting_to_backend": "Opnieuw verbinden met backend",
+      "attempt": "Poging {{attempt}}",
+      "connection_error": "Verbindingsfout",
+      "lost_connection": "Verbinding met backend verloren"
+    },
+    "sync": {
+      "tle_sync_complete": "Synchronisatie van baangegevens voltooid!",
+      "new_items": "Nieuw: {{satellites}} satellieten, {{transmitters}} zenders",
+      "modified_items": "Gewijzigd: {{satellites}} satellieten, {{transmitters}} zenders",
+      "removed_items": "Verwijderd: {{satellites}} satellieten, {{transmitters}} zenders",
+      "no_changes": "Geen wijzigingen gedetecteerd"
+    },
+    "rotator": {
+      "connected": "Rotator verbonden",
+      "disconnected": "Rotator niet verbonden"
+    },
+    "radio": {
+      "connected": "Radio verbonden",
+      "disconnected": "Radio niet verbonden"
+    },
+    "tracking": {
+      "elevation_below_horizon": "Elevatie van doel onder horizon",
+      "azimuth_out_of_bounds": "Doel azimut buiten bereik",
+      "below_min_elevation": "Doel onder minimale elevatie",
+      "satellite_changed": "Doelsatelliet gewijzigd",
+      "satellite_info": "{{name}} (NORAD {{noradId}})"
+    }
+  },
+  "humanize": {
+    "bytes": {
+      "bytes": "Bytes",
+      "kb": "KB",
+      "mb": "MB",
+      "gb": "GB",
+      "tb": "TB"
+    },
+    "date": {
+      "just_now": "Zojuist",
+      "minute_ago": "{{count}} minuut geleden",
+      "minutes_ago": "{{count}} minuten geleden",
+      "hour_ago": "{{count}} uur geleden",
+      "hours_ago": "{{count}} uur geleden",
+      "day_ago": "{{count}} dag geleden",
+      "days_ago": "{{count}} dagen geleden",
+      "week_ago": "{{count}} week geleden",
+      "weeks_ago": "{{count}} weken geleden",
+      "month_ago": "{{count}} maand geleden",
+      "months_ago": "{{count}} maanden geleden",
+      "year_ago": "{{count}} jaar geleden",
+      "years_ago": "{{count}} jaar geleden",
+      "never": "Nooit"
+    }
+  },
+  "satellite_status": {
+    "alive": "Actief",
+    "dead": "Inactief",
+    "re_entered": "Teruggevallen",
+    "future": "Toekomstig",
+    "not_available": "n.b."
+  },
+  "transmitter_status": {
+    "active": "Actief",
+    "inactive": "Inactief",
+    "invalid": "Ongeldig"
+  },
+  "map_settings": {
+    "orbit_projection_time": "Baanprojectietijd",
+    "tile_layer": "Tegellaag",
+    "time_options": {
+      "1_hour": "1 uur",
+      "2_hours": "2 uur",
+      "4_hours": "4 uur",
+      "8_hours": "8 uur",
+      "12_hours": "12 uur",
+      "24_hours": "24 uur"
+    },
+    "satellite_coverage": "Satellietdekking",
+    "past_orbit_path": "Voorbije baanlijn",
+    "future_orbit_path": "Toekomstige baanlijn",
+    "show_sun": "Toon de zon",
+    "show_moon": "Toon de maan",
+    "day_night_separator": "Dag/nacht scheidingslijn",
+    "satellite_tooltip": "Satelliet tooltip",
+    "coordinate_grid": "Coördinatenraster",
+    "footprint_color": "Footprint kleur",
+    "past_orbit_color": "Kleur van voorbije baanlijn",
+    "future_orbit_color": "Kleur van toekomstige baanlijn"
+  }
+}

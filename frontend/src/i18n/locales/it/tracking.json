@@ -1,0 +1,18 @@
+{
+  "title": "Tracciamento",
+  "select_satellite": "Seleziona Satellite",
+  "track": "Traccia",
+  "stop_tracking": "Ferma Tracciamento",
+  "passes": "Passaggi",
+  "next_pass": "Prossimo Passaggio",
+  "current_pass": "Passaggio Corrente",
+  "aos": "AOS",
+  "los": "LOS",
+  "max_elevation": "Elevazione Massima",
+  "azimuth": "Azimut",
+  "elevation": "Elevazione",
+  "range": "Distanza",
+  "velocity": "Velocità",
+  "doppler": "Doppler",
+  "frequency": "Frequenza"
+}

@@ -1,0 +1,19 @@
+{
+  "tracking": "Volgen",
+  "birds_eye_view": "Vogelvluchtperspectief",
+  "tracking_console": "Volgconsole",
+  "waterfall_view": "Watervalaanzicht",
+  "hardware": "Hardware",
+  "rigs": "Radio's",
+  "rotators": "Rotators",
+  "cameras": "Camera's",
+  "sdrs": "SDR's",
+  "satellites": "Satellieten",
+  "orbital_sources": "Baanbronnen",
+  "groups": "Groepen",
+  "settings": "Instellingen",
+  "preferences": "Voorkeuren",
+  "location": "Locatie",
+  "maintenance": "Onderhoud",
+  "about": "Over"
+}

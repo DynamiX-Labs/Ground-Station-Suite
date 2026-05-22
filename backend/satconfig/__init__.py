@@ -1,0 +1,1 @@
+"""Satellite configuration management module."""

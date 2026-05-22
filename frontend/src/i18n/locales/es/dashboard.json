@@ -1,0 +1,106 @@
+{
+  "layout": {
+    "done_editing": "Terminar edición",
+    "edit_layout": "Editar diseño"
+  },
+  "connection": {
+    "connection_failed": "Conexión fallida",
+    "network_error": "Error de red",
+    "reconnecting": "Reconectando",
+    "attempt": "Intento {{count}}",
+    "connecting": "Conectando",
+    "establishing_connection": "Estableciendo conexión"
+  },
+  "version_update": {
+    "new_version_available": "Nueva versión disponible",
+    "version": "Versión {{version}}",
+    "refreshing_in": "Actualizando en {{seconds}}s...",
+    "refreshing_now": "Actualizando ahora...",
+    "cancel": "Cancelar",
+    "refresh_now": "Actualizar ahora"
+  },
+  "target_popover": {
+    "sections": {
+      "basic_information": "Información básica",
+      "current_position": "Posición actual",
+      "mission_information": "Información de misión"
+    },
+    "norad_id": "ID NORAD:",
+    "status": "Estado:",
+    "operator": "Operador:",
+    "countries": "Países:",
+    "latitude": "Latitud:",
+    "longitude": "Longitud:",
+    "altitude": "Altitud:",
+    "velocity": "Velocidad:",
+    "azimuth": "Azimut:",
+    "elevation": "Elevación:",
+    "launched": "Lanzado:",
+    "deployed": "Desplegado:",
+    "decayed": "Caído:",
+    "geostationary": "Geoestacionario:",
+    "website": "Sitio web:",
+    "yes": "Sí",
+    "no": "No",
+    "na": "N/D"
+  },
+  "version_info": {
+    "version": "Versión:",
+    "build_date": "Fecha de compilación:",
+    "git_commit": "Commit Git:",
+    "unknown": "Desconocido",
+    "loading": "Cargando versión...",
+    "unavailable": "Versión no disponible"
+  },
+  "connection_popover": {
+    "network_connected_ws": "Red: Conectada (WebSocket)",
+    "network_connected_polling": "Red: Conectada (Polling)",
+    "network_connecting": "Red: Conectando...",
+    "network_disconnected": "Red: Desconectada",
+    "network_unknown": "Red: Desconocida",
+    "connection_status": "Estado de conexión",
+    "transport": "Transporte:",
+    "duration": "Duración:",
+    "reconnecting": "Reconectando... (Intento: {{count}})",
+    "current_traffic_rate": "Tasa de tráfico actual",
+    "upload": "Subida:",
+    "download": "Descarga:",
+    "msgs_per_second": "{{count}} msgs/s",
+    "application_level": "Nivel de aplicación (Total de sesión)",
+    "sent": "Enviados:",
+    "received": "Recibidos:",
+    "messages": "{{count}} mensajes",
+    "transport_upgrades": "Actualizaciones de transporte:",
+    "audio_buffer": "Búfer de audio",
+    "browser_buffer_length": "Longitud del búfer del navegador:"
+  },
+  "hardware_popover": {
+    "socket_disconnected": "Socket: Desconectado",
+    "rig_disconnected": "Radio: Desconectada",
+    "rig_tracking": "Radio: Siguiendo ({{frequency}} Hz)",
+    "rig_stopped": "Radio: Detenida",
+    "rig_connected": "Radio: Conectada",
+    "rotator_disconnected": "Rotador: Desconectado",
+    "rotator_tracking": "Rotador: Siguiendo (Az: {{az}}°, El: {{el}}°)",
+    "rotator_slewing": "Rotador: Moviéndose (Az: {{az}}°, El: {{el}}°)",
+    "rotator_stopped": "Rotador: Detenido (Az: {{az}}°, El: {{el}}°)",
+    "rotator_connected": "Rotador: Conectado (Az: {{az}}°, El: {{el}}°)"
+  },
+  "orbital_sync_popover": {
+    "syncing": "Sincronizando: {{progress}}%",
+    "sync_failed": "Sincronización fallida: {{error}}",
+    "last_sync": "Última sincronización: {{date}}",
+    "satellite_orbital_sync": "Sincronización de datos orbitales",
+    "orbital_sync_status": "Estado de sincronización orbital",
+    "status": "Estado",
+    "idle": "inactivo",
+    "progress": "Progreso: {{progress}}%",
+    "last_update": "Última actualización",
+    "na": "N/D",
+    "statistics": "Estadísticas",
+    "satellites": "Satélites: {{count}}",
+    "transmitters": "Transmisores: {{count}}",
+    "groups": "Grupos: {{count}}",
+    "errors": "Errores ({{count}})"
+  }
+}

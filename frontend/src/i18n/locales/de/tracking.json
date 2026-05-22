@@ -1,0 +1,18 @@
+{
+  "title": "Verfolgung",
+  "select_satellite": "Satellit auswählen",
+  "track": "Verfolgen",
+  "stop_tracking": "Verfolgung stoppen",
+  "passes": "Überflüge",
+  "next_pass": "Nächster Überflug",
+  "current_pass": "Aktueller Überflug",
+  "aos": "AOS",
+  "los": "LOS",
+  "max_elevation": "Maximale Elevation",
+  "azimuth": "Azimut",
+  "elevation": "Elevation",
+  "range": "Entfernung",
+  "velocity": "Geschwindigkeit",
+  "doppler": "Doppler",
+  "frequency": "Frequenz"
+}

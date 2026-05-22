@@ -1,0 +1,106 @@
+{
+  "layout": {
+    "done_editing": "Klaar met bewerken",
+    "edit_layout": "Indeling bewerken"
+  },
+  "connection": {
+    "connection_failed": "Verbinding mislukt",
+    "network_error": "Netwerkfout",
+    "reconnecting": "Opnieuw verbinden",
+    "attempt": "Poging {{count}}",
+    "connecting": "Verbinden",
+    "establishing_connection": "Verbinding tot stand brengen"
+  },
+  "version_update": {
+    "new_version_available": "Nieuwe versie beschikbaar",
+    "version": "Versie {{version}}",
+    "refreshing_in": "Vernieuwen over {{seconds}}s...",
+    "refreshing_now": "Nu vernieuwen...",
+    "cancel": "ANNULEREN",
+    "refresh_now": "NU VERNIEUWEN"
+  },
+  "target_popover": {
+    "sections": {
+      "basic_information": "Basisinformatie",
+      "current_position": "Huidige positie",
+      "mission_information": "Missie-informatie"
+    },
+    "norad_id": "NORAD ID:",
+    "status": "Status:",
+    "operator": "Operator:",
+    "countries": "Landen:",
+    "latitude": "Breedtegraad:",
+    "longitude": "Lengtegraad:",
+    "altitude": "Hoogte:",
+    "velocity": "Snelheid:",
+    "azimuth": "Azimut:",
+    "elevation": "Elevatie:",
+    "launched": "Gelanceerd:",
+    "deployed": "Ingezet:",
+    "decayed": "Vervallen:",
+    "geostationary": "GEO:",
+    "website": "Website:",
+    "yes": "Ja",
+    "no": "Nee",
+    "na": "N.v.t."
+  },
+  "version_info": {
+    "version": "Versie:",
+    "build_date": "Bouwdatum:",
+    "git_commit": "Git Commit:",
+    "unknown": "Onbekend",
+    "loading": "Versie laden...",
+    "unavailable": "Versie niet beschikbaar"
+  },
+  "connection_popover": {
+    "network_connected_ws": "Netwerk: Verbonden (WebSocket)",
+    "network_connected_polling": "Netwerk: Verbonden (Polling)",
+    "network_connecting": "Netwerk: Verbinden...",
+    "network_disconnected": "Netwerk: Verbinding verbroken",
+    "network_unknown": "Netwerk: Onbekend",
+    "connection_status": "Verbindingsstatus",
+    "transport": "Transport:",
+    "duration": "Duur:",
+    "reconnecting": "Opnieuw verbinden... (Poging: {{count}})",
+    "current_traffic_rate": "Huidige verkeerssnelheid",
+    "upload": "Upload:",
+    "download": "Download:",
+    "msgs_per_second": "{{count}} berichten/s",
+    "application_level": "Applicatieniveau (sessietotaal)",
+    "sent": "Verzonden:",
+    "received": "Ontvangen:",
+    "messages": "{{count}} berichten",
+    "transport_upgrades": "Transport-upgrades:",
+    "audio_buffer": "Audiobuffer",
+    "browser_buffer_length": "Browserbufferlengte:"
+  },
+  "hardware_popover": {
+    "socket_disconnected": "Socket: Verbinding verbroken",
+    "rig_disconnected": "Rig: Verbinding verbroken",
+    "rig_tracking": "Rig: Volgen ({{frequency}} Hz)",
+    "rig_stopped": "Rig: Gestopt",
+    "rig_connected": "Rig: Verbonden",
+    "rotator_disconnected": "Rotator: Verbinding verbroken",
+    "rotator_tracking": "Rotator: Volgen (Az: {{az}}°, El: {{el}}°)",
+    "rotator_slewing": "Rotator: Draaien (Az: {{az}}°, El: {{el}}°)",
+    "rotator_stopped": "Rotator: Gestopt (Az: {{az}}°, El: {{el}}°)",
+    "rotator_connected": "Rotator: Verbonden (Az: {{az}}°, El: {{el}}°)"
+  },
+  "orbital_sync_popover": {
+    "syncing": "Synchroniseren: {{progress}}%",
+    "sync_failed": "Synchronisatie mislukt: {{error}}",
+    "last_sync": "Laatste synchronisatie: {{date}}",
+    "satellite_orbital_sync": "Synchronisatie van satelliet-baangegevens",
+    "orbital_sync_status": "Status baangegevenssynchronisatie",
+    "status": "Status",
+    "idle": "inactief",
+    "progress": "Voortgang: {{progress}}%",
+    "last_update": "Laatste update",
+    "na": "N.v.t.",
+    "statistics": "Statistieken",
+    "satellites": "Satellieten: {{count}}",
+    "transmitters": "Zenders: {{count}}",
+    "groups": "Groepen: {{count}}",
+    "errors": "Fouten ({{count}})"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "layout": {
+    "done_editing": "Bearbeitung Abgeschlossen",
+    "edit_layout": "Layout Bearbeiten"
+  },
+  "connection": {
+    "connection_failed": "Verbindung Fehlgeschlagen",
+    "network_error": "Netzwerkfehler",
+    "reconnecting": "Verbindung Wird Wiederhergestellt",
+    "attempt": "Versuch {{count}}",
+    "connecting": "Verbindung Wird Hergestellt",
+    "establishing_connection": "Verbindung Wird Aufgebaut"
+  },
+  "version_update": {
+    "new_version_available": "Neue Version Verfügbar",
+    "version": "Version {{version}}",
+    "refreshing_in": "Aktualisierung in {{seconds}}s...",
+    "refreshing_now": "Wird Jetzt Aktualisiert...",
+    "cancel": "ABBRECHEN",
+    "refresh_now": "JETZT AKTUALISIEREN"
+  },
+  "target_popover": {
+    "sections": {
+      "basic_information": "Grundlegende Informationen",
+      "current_position": "Aktuelle Position",
+      "mission_information": "Missionsinformationen"
+    },
+    "norad_id": "NORAD ID:",
+    "status": "Status:",
+    "operator": "Betreiber:",
+    "countries": "Länder:",
+    "latitude": "Breitengrad:",
+    "longitude": "Längengrad:",
+    "altitude": "Höhe:",
+    "velocity": "Geschwindigkeit:",
+    "azimuth": "Azimut:",
+    "elevation": "Elevation:",
+    "launched": "Gestartet:",
+    "deployed": "Eingesetzt:",
+    "decayed": "Verglüht:",
+    "geostationary": "Geostationär:",
+    "website": "Webseite:",
+    "yes": "Ja",
+    "no": "Nein",
+    "na": "N/A"
+  },
+  "version_info": {
+    "version": "Version:",
+    "build_date": "Build-Datum:",
+    "git_commit": "Git Commit:",
+    "unknown": "Unbekannt",
+    "loading": "Version Wird Geladen...",
+    "unavailable": "Version Nicht Verfügbar"
+  },
+  "connection_popover": {
+    "network_connected_ws": "Netzwerk: Verbunden (WebSocket)",
+    "network_connected_polling": "Netzwerk: Verbunden (Polling)",
+    "network_connecting": "Netzwerk: Verbindung Wird Hergestellt...",
+    "network_disconnected": "Netzwerk: Getrennt",
+    "network_unknown": "Netzwerk: Unbekannt",
+    "connection_status": "Verbindungsstatus",
+    "transport": "Transport:",
+    "duration": "Dauer:",
+    "reconnecting": "Verbindung Wird Wiederhergestellt... (Versuch: {{count}})",
+    "current_traffic_rate": "Aktuelle Datenübertragungsrate",
+    "upload": "Upload:",
+    "download": "Download:",
+    "msgs_per_second": "{{count}} Nachr./s",
+    "application_level": "Anwendungsebene (Sitzungssumme)",
+    "sent": "Gesendet:",
+    "received": "Empfangen:",
+    "messages": "{{count}} Nachrichten",
+    "transport_upgrades": "Transport-Upgrades:",
+    "audio_buffer": "Audio-Puffer",
+    "browser_buffer_length": "Browser-Pufferlänge:"
+  },
+  "hardware_popover": {
+    "socket_disconnected": "Socket: Getrennt",
+    "rig_disconnected": "Rig: Getrennt",
+    "rig_tracking": "Rig: Verfolgung ({{frequency}} Hz)",
+    "rig_stopped": "Rig: Gestoppt",
+    "rig_connected": "Rig: Verbunden",
+    "rotator_disconnected": "Rotator: Getrennt",
+    "rotator_tracking": "Rotator: Verfolgung (Az: {{az}}°, El: {{el}}°)",
+    "rotator_slewing": "Rotator: Schwenkt (Az: {{az}}°, El: {{el}}°)",
+    "rotator_stopped": "Rotator: Gestoppt (Az: {{az}}°, El: {{el}}°)",
+    "rotator_connected": "Rotator: Verbunden (Az: {{az}}°, El: {{el}}°)"
+  },
+  "orbital_sync_popover": {
+    "syncing": "Synchronisierung: {{progress}}%",
+    "sync_failed": "Synchronisierung Fehlgeschlagen: {{error}}",
+    "last_sync": "Letzte Synchronisierung: {{date}}",
+    "satellite_orbital_sync": "Satelliten-Orbitdaten-Synchronisierung",
+    "orbital_sync_status": "Orbitdaten-Synchronisierungsstatus",
+    "status": "Status",
+    "idle": "Inaktiv",
+    "progress": "Fortschritt: {{progress}}%",
+    "last_update": "Letzte Aktualisierung",
+    "na": "N/A",
+    "statistics": "Statistiken",
+    "satellites": "Satelliten: {{count}}",
+    "transmitters": "Transmitter: {{count}}",
+    "groups": "Gruppen: {{count}}",
+    "errors": "Fehler ({{count}})"
+  }
+}

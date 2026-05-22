@@ -1,0 +1,438 @@
+"""
+SoapySDR Server Discovery background task.
+
+This task discovers SoapyRemote servers using mDNS (Zeroconf) and queries them
+for connected SDR devices. It's designed to run as a background task with progress reporting.
+"""
+
+import asyncio
+import logging
+import multiprocessing
+import signal
+from multiprocessing import Queue
+from typing import Optional
+
+try:
+    import setproctitle
+
+    HAS_SETPROCTITLE = True
+except ImportError:
+    HAS_SETPROCTITLE = False
+
+from hardware.soapysdrbrowser import (
+    discover_soapy_servers,
+    discovered_servers,
+    get_active_servers_with_sdrs,
+    refresh_connected_sdrs,
+)
+
+logger = logging.getLogger("soapysdr-discovery-task")
+
+
+class GracefulKiller:
+    """Handle SIGTERM gracefully within the process."""
+
+    def __init__(self):
+        self.kill_now = False
+        signal.signal(signal.SIGTERM, self.exit_gracefully)
+        signal.signal(signal.SIGINT, self.exit_gracefully)
+
+    def exit_gracefully(self, *args):
+        self.kill_now = True
+
+
+def soapysdr_discovery_task(
+    mode: str = "single", refresh_interval: int = 120, _progress_queue: Optional[Queue] = None
+):
+    """
+    Discover SoapySDR servers and their connected devices.
+
+    Args:
+        mode: Discovery mode - "single" for one-time discovery, "monitor" for continuous monitoring
+        refresh_interval: Seconds between refreshes in monitor mode (default: 120)
+        _progress_queue: Queue for sending progress updates (injected by manager)
+
+    Returns:
+        Dict with discovery results
+    """
+    # Set process name
+    if HAS_SETPROCTITLE:
+        setproctitle.setproctitle("DynamiX-Labs - SoapySDR-Discovery")
+    multiprocessing.current_process().name = "DynamiX-Labs - SoapySDR-Discovery"
+
+    killer = GracefulKiller()
+
+    try:
+        if _progress_queue:
+            _progress_queue.put(
+                {
+                    "type": "output",
+                    "output": "Starting SoapySDR server discovery...",
+                    "stream": "stdout",
+                    "progress": 0,
+                }
+            )
+            _progress_queue.put(
+                {
+                    "type": "output",
+                    "output": f"Mode: {mode}",
+                    "stream": "stdout",
+                }
+            )
+            if mode == "monitor":
+                _progress_queue.put(
+                    {
+                        "type": "output",
+                        "output": f"Refresh interval: {refresh_interval} seconds",
+                        "stream": "stdout",
+                    }
+                )
+
+        # Run the async discovery in a new event loop (since we're in a separate process)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+
+        try:
+            # Initial discovery
+            if _progress_queue:
+                _progress_queue.put(
+                    {
+                        "type": "output",
+                        "output": "Performing initial mDNS discovery...",
+                        "stream": "stdout",
+                        "progress": 10,
+                    }
+                )
+
+            loop.run_until_complete(discover_soapy_servers())
+
+            if killer.kill_now:
+                if _progress_queue:
+                    _progress_queue.put(
+                        {
+                            "type": "output",
+                            "output": "Discovery interrupted by user",
+                            "stream": "stdout",
+                        }
+                    )
+                return {"status": "interrupted", "servers": {}}
+
+            # Report initial discovery results
+            server_count = len(discovered_servers)
+            active_servers = get_active_servers_with_sdrs()
+            active_count = len(active_servers)
+            active_sdr_count = sum(
+                len(server_info.get("sdrs", []))
+                for server_info in active_servers.values()
+                if isinstance(server_info.get("sdrs", []), list)
+            )
+
+            # Serialize discovered servers for transmission to main process
+            serialized_servers = {}
+            for name, server_info in discovered_servers.items():
+                serialized_servers[name] = {
+                    "ip": server_info.get("ip"),
+                    "port": server_info.get("port"),
+                    "name": server_info.get("name"),
+                    "mDNS_name": server_info.get("mDNS_name"),
+                    "status": server_info.get("status"),
+                    "sdrs": server_info.get("sdrs", []),
+                    "addresses": server_info.get("addresses", []),
+                    "last_updated": float(server_info.get("last_updated", 0)),
+                }
+
+            if _progress_queue:
+                _progress_queue.put(
+                    {
+                        "type": "output",
+                        "output": (
+                            "Initial discovery complete: "
+                            f"Found {server_count} server(s), {active_sdr_count} SDR(s) active"
+                        ),
+                        "stream": "stdout",
+                        "progress": 50,
+                    }
+                )
+
+                # Send discovery data to main process
+                _progress_queue.put(
+                    {
+                        "type": "discovery_update",
+                        "servers": serialized_servers,
+                        "server_count": server_count,
+                        "active_count": active_count,
+                        "sdr_count": active_sdr_count,
+                    }
+                )
+
+                # Report details for each server
+                for name, server_info in discovered_servers.items():
+                    ip = server_info.get("ip")
+                    port = server_info.get("port")
+                    status = server_info.get("status")
+                    sdrs = server_info.get("sdrs", [])
+                    sdr_count = len(sdrs) if isinstance(sdrs, list) else 0
+
+                    status_line = f"  • {name} ({ip}:{port}) - Status: {status}"
+                    if status == "active" and sdr_count > 0:
+                        status_line += f" - {sdr_count} SDR(s) connected"
+
+                    _progress_queue.put(
+                        {"type": "output", "output": status_line, "stream": "stdout"}
+                    )
+
+                    # Report individual SDRs
+                    if status == "active" and isinstance(sdrs, list):
+                        for i, sdr in enumerate(sdrs):
+                            driver = sdr.get("driver", "Unknown")
+                            label = sdr.get("label", sdr.get("device", f"SDR #{i+1}"))
+                            serial = sdr.get("serial", "N/A")
+                            _progress_queue.put(
+                                {
+                                    "type": "output",
+                                    "output": f"    - {label} ({driver}) [Serial: {serial}]",
+                                    "stream": "stdout",
+                                }
+                            )
+
+            # If single mode, we're done
+            if mode == "single":
+                if _progress_queue:
+                    _progress_queue.put(
+                        {
+                            "type": "output",
+                            "output": "Single discovery completed",
+                            "stream": "stdout",
+                            "progress": 100,
+                        }
+                    )
+
+                # Serialize discovered servers for return
+                serialized_servers = {}
+                for name, server_info in discovered_servers.items():
+                    serialized_servers[name] = {
+                        "ip": server_info.get("ip"),
+                        "port": server_info.get("port"),
+                        "name": server_info.get("name"),
+                        "status": server_info.get("status"),
+                        "sdrs": server_info.get("sdrs", []),
+                    }
+
+                return {
+                    "status": "completed",
+                    "mode": "single",
+                    "server_count": server_count,
+                    "active_count": active_count,
+                    "servers": serialized_servers,
+                }
+
+            # Monitor mode: continuously refresh
+            refresh_count = 0
+            while not killer.kill_now:
+                if _progress_queue:
+                    _progress_queue.put(
+                        {
+                            "type": "output",
+                            "output": f"Waiting {refresh_interval} seconds before next refresh...",
+                            "stream": "stdout",
+                            "progress": 60 + (refresh_count % 10) * 4,
+                        }
+                    )
+
+                # Sleep with interruption checking
+                for _ in range(refresh_interval):
+                    if killer.kill_now:
+                        break
+                    asyncio.run(asyncio.sleep(1))
+
+                if killer.kill_now:
+                    break
+
+                refresh_count += 1
+                if _progress_queue:
+                    _progress_queue.put(
+                        {
+                            "type": "output",
+                            "output": f"Refresh #{refresh_count}: Updating connected SDRs...",
+                            "stream": "stdout",
+                        }
+                    )
+
+                # Refresh SDR list
+                loop.run_until_complete(refresh_connected_sdrs())
+
+                # Report refresh results
+                active_servers = get_active_servers_with_sdrs()
+                active_count = len(active_servers)
+                active_sdr_count = sum(
+                    len(server_info.get("sdrs", []))
+                    for server_info in active_servers.values()
+                    if isinstance(server_info.get("sdrs", []), list)
+                )
+
+                # Serialize discovered servers for transmission to main process
+                serialized_servers = {}
+                for name, server_info in discovered_servers.items():
+                    serialized_servers[name] = {
+                        "ip": server_info.get("ip"),
+                        "port": server_info.get("port"),
+                        "name": server_info.get("name"),
+                        "mDNS_name": server_info.get("mDNS_name"),
+                        "status": server_info.get("status"),
+                        "sdrs": server_info.get("sdrs", []),
+                        "addresses": server_info.get("addresses", []),
+                        "last_updated": float(server_info.get("last_updated", 0)),
+                    }
+
+                if _progress_queue:
+                    _progress_queue.put(
+                        {
+                            "type": "output",
+                            "output": (
+                                f"Refresh #{refresh_count} complete: "
+                                f"{active_sdr_count} SDR(s) active"
+                            ),
+                            "stream": "stdout",
+                        }
+                    )
+
+                    # Send discovery data to main process
+                    _progress_queue.put(
+                        {
+                            "type": "discovery_update",
+                            "servers": serialized_servers,
+                            "server_count": len(discovered_servers),
+                            "active_count": active_count,
+                            "sdr_count": active_sdr_count,
+                            "refresh_count": refresh_count,
+                        }
+                    )
+
+            # Interrupted in monitor mode
+            if _progress_queue:
+                _progress_queue.put(
+                    {
+                        "type": "output",
+                        "output": f"Monitoring stopped after {refresh_count} refresh(es)",
+                        "stream": "stdout",
+                    }
+                )
+
+            return {
+                "status": "interrupted",
+                "mode": "monitor",
+                "refresh_count": refresh_count,
+                "final_server_count": len(discovered_servers),
+                "final_active_count": len(get_active_servers_with_sdrs()),
+            }
+
+        finally:
+            loop.close()
+
+    except Exception as e:
+        error_msg = f"Error during SoapySDR discovery: {str(e)}"
+        logger.error(error_msg)
+        if _progress_queue:
+            _progress_queue.put({"type": "error", "error": error_msg, "stream": "stderr"})
+        raise
+
+
+def soapysdr_quick_refresh_task(_progress_queue: Optional[Queue] = None):
+    """
+    Quick refresh of already-discovered SoapySDR servers.
+
+    This only re-queries known servers for their connected SDRs without doing
+    a full mDNS discovery. Useful for checking if devices were plugged/unplugged.
+
+    Args:
+        _progress_queue: Queue for sending progress updates (injected by manager)
+
+    Returns:
+        Dict with refresh results
+    """
+    # Set process name
+    if HAS_SETPROCTITLE:
+        setproctitle.setproctitle("DynamiX-Labs - SoapySDR-Refresh")
+    multiprocessing.current_process().name = "DynamiX-Labs - SoapySDR-Refresh"
+
+    try:
+        if _progress_queue:
+            _progress_queue.put(
+                {
+                    "type": "output",
+                    "output": "Refreshing connected SDRs on known servers...",
+                    "stream": "stdout",
+                    "progress": 0,
+                }
+            )
+
+        if not discovered_servers:
+            if _progress_queue:
+                _progress_queue.put(
+                    {
+                        "type": "output",
+                        "output": "No servers known yet. Run full discovery first.",
+                        "stream": "stdout",
+                        "progress": 100,
+                    }
+                )
+            return {"status": "completed", "message": "No servers to refresh"}
+
+        # Run the async refresh
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+
+        try:
+            loop.run_until_complete(refresh_connected_sdrs())
+
+            active_servers = get_active_servers_with_sdrs()
+            active_count = len(active_servers)
+
+            # Serialize discovered servers for transmission to main process
+            serialized_servers = {}
+            for name, server_info in discovered_servers.items():
+                serialized_servers[name] = {
+                    "ip": server_info.get("ip"),
+                    "port": server_info.get("port"),
+                    "name": server_info.get("name"),
+                    "mDNS_name": server_info.get("mDNS_name"),
+                    "status": server_info.get("status"),
+                    "sdrs": server_info.get("sdrs", []),
+                    "addresses": server_info.get("addresses", []),
+                    "last_updated": float(server_info.get("last_updated", 0)),
+                }
+
+            if _progress_queue:
+                _progress_queue.put(
+                    {
+                        "type": "output",
+                        "output": f"Refresh complete: {active_count} active server(s) with SDRs",
+                        "stream": "stdout",
+                        "progress": 100,
+                    }
+                )
+
+                # Send discovery data to main process
+                _progress_queue.put(
+                    {
+                        "type": "discovery_update",
+                        "servers": serialized_servers,
+                        "server_count": len(discovered_servers),
+                        "active_count": active_count,
+                    }
+                )
+
+            return {
+                "status": "completed",
+                "server_count": len(discovered_servers),
+                "active_count": active_count,
+            }
+        finally:
+            loop.close()
+
+    except Exception as e:
+        error_msg = f"Error during SDR refresh: {str(e)}"
+        logger.error(error_msg)
+        if _progress_queue:
+            _progress_queue.put({"type": "error", "error": error_msg, "stream": "stderr"})
+        raise

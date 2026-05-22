@@ -1,0 +1,164 @@
+{
+  "map_settings": {
+    "title": "Configuración del mapa",
+    "close": "Cerrar"
+  },
+  "map_controls": {
+    "map_settings": "Configuración del mapa",
+    "go_home": "Ir al inicio",
+    "go_to_center": "Ir al centro del mapa",
+    "go_fullscreen": "Pantalla completa"
+  },
+  "next_passes": {
+    "title": "Próximas pasadas de {{name}} en las próximas {{hours}} horas",
+    "start": "Inicio",
+    "end": "Fin",
+    "duration": "Duración",
+    "progress": "Progreso",
+    "distance_aos": "Distancia en AOS",
+    "distance_los": "Distancia en LOS",
+    "distance_peak": "Distancia en el pico",
+    "max_el": "El máx",
+    "geo_stat": "GEO Est",
+    "geo_sync": "GEO Sinc",
+    "no_satellite_selected": "Por favor, seleccione un satélite para ver los pasos"
+  },
+  "rig_control": {
+    "title": "Control de radio",
+    "connected": "Conectada",
+    "not_connected": "No conectada",
+    "unknown": "Desconocido",
+    "failed_start_tracking": "Error al iniciar el seguimiento",
+    "on_rig": "En Radio:",
+    "doppler_shift": "Desplazamiento Doppler:",
+    "transmitted": "Transmitido:",
+    "observed": "Observado:",
+    "connect": "CONECTAR",
+    "disconnect": "DESCONECTAR",
+    "track_radio": "SEGUIR RADIO",
+    "stop": "DETENER"
+  },
+  "rotator_control": {
+    "title": "Control del rotador",
+    "failed_start_tracking": "Error al iniciar el seguimiento con el rotador",
+    "az": "AZ:",
+    "el": "EL:",
+    "ccw": "⟲ CCW",
+    "cw": "CW ⟳",
+    "up": "↑ ARRIBA",
+    "down": "ABAJO ↓",
+    "connect": "CONECTAR",
+    "disconnect": "DESCONECTAR",
+    "park": "ESTACIONAR",
+    "track": "SEGUIR",
+    "stop": "DETENER"
+  },
+  "satellite_search": {
+    "search_label": "Buscar satélites (por nombre o ID NORAD)"
+  },
+  "satellite_dropdown": {
+    "label": "Satélite"
+  },
+  "satellite_info": {
+    "title": "Información del satélite",
+    "sections": {
+      "position_data": "DATOS DE POSICIÓN",
+      "orbital_data": "DATOS ORBITALES",
+      "metadata": "METADATOS"
+    },
+    "labels": {
+      "latitude": "LATITUD",
+      "longitude": "LONGITUD",
+      "azimuth": "AZIMUT",
+      "elevation": "ELEVACIÓN",
+      "altitude": "ALTITUD",
+      "velocity": "VELOCIDAD",
+      "geostationary": "GEOESTACIONARIO",
+      "launch_date": "FECHA DE LANZAMIENTO",
+      "added_to_db": "AGREGADO A LA BD",
+      "countries": "PAÍSES",
+      "alternative_name": "NOMBRE ALTERNATIVO",
+      "satellite_id": "ID DEL SATÉLITE"
+    },
+    "values": {
+      "yes": "SÍ",
+      "no": "NO",
+      "na": "N/D"
+    }
+  },
+  "errors": {
+    "failed_get_tracking_state": "Error al obtener el estado de seguimiento"
+  },
+  "group_dropdown": {
+    "label": "Grupo",
+    "user_groups": "Grupos de satélites definidos por el usuario",
+    "tle_groups": "Grupos de fuentes orbitales",
+    "none_created": "Ninguno creado"
+  },
+  "rig_control_labels": {
+    "rig_label": "Radio",
+    "transmitter_label": "Transmisor",
+    "no_rig_control": "[sin control de radio]",
+    "select_rig": "selecciona una radio",
+    "select_sdr": "selecciona un SDR",
+    "no_frequency_control": "[sin control de frecuencia]",
+    "select_transmitter": "selecciona un transmisor",
+    "no_transmitters": "No hay transmisores disponibles para este satélite"
+  },
+  "rotator_control_labels": {
+    "rotator_label": "Rotador",
+    "none": "Ninguno",
+    "rotators": "Rotadores",
+    "no_rotator_control": "[sin control de rotador]",
+    "select_rotator": "selecciona un rotador"
+  },
+  "satellite_selector": {
+    "title": "Selecciona un satélite",
+    "stop_tracking": "DETENER SEGUIMIENTO"
+  },
+  "satellite_map": {
+    "title": "Seguimiento del objetivo"
+  },
+  "pass_timeline": {
+    "title": "Línea de tiempo de pasadas para {{name}} - Próximas {{hours}} horas"
+  },
+  "timeline": {
+    "zoomIn": "Acercar",
+    "zoomOut": "Alejar",
+    "resetZoom": "Restablecer zoom",
+    "sunrise": "Amanecer",
+    "sunset": "Atardecer",
+    "now": "AHORA",
+    "noPassesAvailable": "No hay pasadas de satélite disponibles",
+    "noPassesForSelected": "No hay pasadas para las {{hours}} horas seleccionadas",
+    "active": "ACTIVA",
+    "start": "Inicio",
+    "end": "Fin",
+    "duration": "Duración",
+    "maxElevation": "Elevación máx.",
+    "minDistance": "Distancia mín."
+  },
+  "satellite_transmitters": {
+    "title": "Transmisores",
+    "count": "Cantidad",
+    "sections": {
+      "communication_overview": "RESUMEN DE COMUNICACIÓN",
+      "transmitter_details": "DETALLES DEL TRANSMISOR"
+    },
+    "labels": {
+      "total": "TOTAL",
+      "active": "ACTIVO",
+      "inactive": "INACTIVO",
+      "frequency_bands": "BANDAS DE FRECUENCIA",
+      "downlink": "Enlace descendente",
+      "mode": "Modo",
+      "baud": "Baud",
+      "band": "Banda"
+    },
+    "messages": {
+      "frequency_violation": "⚠️ VIOLACIÓN DE FRECUENCIA",
+      "no_transmitters": "No hay transmisores disponibles",
+      "no_transmitters_desc": "Este satélite no tiene transmisores registrados."
+    }
+  }
+}

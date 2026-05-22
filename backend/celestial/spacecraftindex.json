@@ -1,0 +1,290 @@
+[
+  {
+    "id": "voyager1",
+    "display_name": "Voyager 1",
+    "command": "Voyager 1",
+    "aliases": ["vgr1", "voyager one"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "voyager2",
+    "display_name": "Voyager 2",
+    "command": "Voyager 2",
+    "aliases": ["vgr2", "voyager two"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "newhorizons",
+    "display_name": "New Horizons",
+    "command": "-98",
+    "aliases": ["nh", "pluto probe"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "parkersolarprobe",
+    "display_name": "Parker Solar Probe",
+    "command": "Parker Solar Probe",
+    "aliases": ["psp", "parker"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "solarorbiter",
+    "display_name": "Solar Orbiter",
+    "command": "Solar Orbiter",
+    "aliases": ["solo"],
+    "agency": "ESA/NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "stereoa",
+    "display_name": "STEREO-A",
+    "command": "STEREO-A",
+    "aliases": ["stereo ahead", "stereo a", "-234"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "stereob",
+    "display_name": "STEREO-B",
+    "command": "STEREO-B",
+    "aliases": ["stereo behind", "stereo b", "-235"],
+    "agency": "NASA",
+    "mission_status": "completed",
+    "status_label": "Completed"
+  },
+  {
+    "id": "juno",
+    "display_name": "Juno",
+    "command": "-61",
+    "aliases": ["jupiter juno"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "cassini",
+    "display_name": "Cassini",
+    "command": "Cassini",
+    "aliases": ["cassini-huygens"],
+    "agency": "NASA/ESA/ASI",
+    "mission_status": "completed",
+    "status_label": "Completed"
+  },
+  {
+    "id": "galileo",
+    "display_name": "Galileo",
+    "command": "Galileo",
+    "aliases": ["galileo orbiter"],
+    "agency": "NASA",
+    "mission_status": "completed",
+    "status_label": "Completed"
+  },
+  {
+    "id": "maven",
+    "display_name": "MAVEN",
+    "command": "MAVEN",
+    "aliases": ["mars maven"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "marsodyssey",
+    "display_name": "2001 Mars Odyssey",
+    "command": "-53",
+    "aliases": ["odyssey"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "mro",
+    "display_name": "Mars Reconnaissance Orbiter",
+    "command": "Mars Reconnaissance Orbiter",
+    "aliases": ["mro"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "insight",
+    "display_name": "InSight",
+    "command": "InSight",
+    "aliases": ["mars insight"],
+    "agency": "NASA",
+    "mission_status": "completed",
+    "status_label": "Completed"
+  },
+  {
+    "id": "curiosity",
+    "display_name": "MSL/Curiosity",
+    "command": "-76",
+    "aliases": ["curiosity", "mars science laboratory"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "perseverance",
+    "display_name": "Mars 2020 / Perseverance",
+    "command": "Mars 2020",
+    "aliases": ["perseverance", "mars2020"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "bepicolombo",
+    "display_name": "BepiColombo",
+    "command": "BepiColombo",
+    "aliases": ["bepi"],
+    "agency": "ESA/JAXA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "hayabusa2",
+    "display_name": "Hayabusa2",
+    "command": "Hayabusa 2",
+    "aliases": ["hayabusa 2"],
+    "agency": "JAXA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "osirisrex",
+    "display_name": "OSIRIS-REx",
+    "command": "-64",
+    "aliases": ["osiris rex", "bennu"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "juice",
+    "display_name": "JUICE",
+    "command": "JUICE",
+    "aliases": ["jupiter icy moons explorer"],
+    "agency": "ESA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "euclid",
+    "display_name": "Euclid",
+    "command": "Euclid",
+    "aliases": ["esa euclid"],
+    "agency": "ESA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "dart",
+    "display_name": "DART",
+    "command": "DART",
+    "aliases": ["double asteroid redirection test"],
+    "agency": "NASA",
+    "mission_status": "completed",
+    "status_label": "Completed"
+  },
+  {
+    "id": "lucy",
+    "display_name": "Lucy",
+    "command": "-49",
+    "aliases": ["trojan mission"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "psyche",
+    "display_name": "Psyche",
+    "command": "-255",
+    "aliases": ["16 psyche mission"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "lunarreconnaissanceorbiter",
+    "display_name": "Lunar Reconnaissance Orbiter",
+    "command": "LRO",
+    "aliases": ["lro"],
+    "agency": "NASA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "chandrayaan2orbiter",
+    "display_name": "Chandrayaan-2 Orbiter",
+    "command": "-152",
+    "aliases": ["ch2 orbiter"],
+    "agency": "ISRO",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "chandrayaan3",
+    "display_name": "Chandrayaan-3",
+    "command": "Chandrayaan-3",
+    "aliases": ["ch3"],
+    "agency": "ISRO",
+    "mission_status": "completed",
+    "status_label": "Completed"
+  },
+  {
+    "id": "tianwen1",
+    "display_name": "Tianwen-1",
+    "command": "Tianwen-1",
+    "aliases": ["mars china"],
+    "agency": "CNSA",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "exomars",
+    "display_name": "ExoMars Trace Gas Orbiter",
+    "command": "ExoMars",
+    "aliases": ["tgo"],
+    "agency": "ESA/Roscosmos",
+    "mission_status": "active",
+    "status_label": "Active"
+  },
+  {
+    "id": "rosetta",
+    "display_name": "Rosetta",
+    "command": "Rosetta",
+    "aliases": ["67p mission"],
+    "agency": "ESA",
+    "mission_status": "completed",
+    "status_label": "Completed"
+  },
+  {
+    "id": "deepimpact",
+    "display_name": "Deep Impact",
+    "command": "Deep Impact",
+    "aliases": ["epon"],
+    "agency": "NASA",
+    "mission_status": "completed",
+    "status_label": "Completed"
+  },
+  {
+    "id": "dawn",
+    "display_name": "Dawn",
+    "command": "Dawn",
+    "aliases": ["vesta ceres"],
+    "agency": "NASA",
+    "mission_status": "completed",
+    "status_label": "Completed"
+  }
+]

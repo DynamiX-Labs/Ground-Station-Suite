@@ -1,0 +1,186 @@
+name: Create Release from Existing Images
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: sgoudelis/ground-station
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract version information
+        id: version
+        run: |
+          VERSION_BASE=$(cat backend/server/version.json | grep -o '"version"[[:space:]]*:[[:space:]]*"[^"]*"' | cut -d'"' -f4)
+          echo "version_base=$VERSION_BASE" >> $GITHUB_OUTPUT
+
+          GIT_SHA=$(git rev-parse --short HEAD)
+          echo "git_sha=$GIT_SHA" >> $GITHUB_OUTPUT
+
+          ENV_TYPE="production"
+          echo "env_type=$ENV_TYPE" >> $GITHUB_OUTPUT
+
+          BUILD_DATE=$(date -u +'%Y%m%d')
+          echo "build_date=$BUILD_DATE" >> $GITHUB_OUTPUT
+
+          TAG_VERSION="${{ github.ref_name }}"
+          TAG_VERSION="${TAG_VERSION#v}"
+          echo "tag_version=$TAG_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Get previous tag
+        id: prev_tag
+        run: |
+          PREV_TAG=$(git tag --sort=-version:refname | grep -A1 "${{ github.ref_name }}" | tail -n1)
+          echo "prev_tag=$PREV_TAG" >> $GITHUB_OUTPUT
+
+      - name: Generate commit list
+        id: commits
+        run: |
+          if [ -n "${{ steps.prev_tag.outputs.prev_tag }}" ]; then
+            COMMIT_LIST=$(git log ${{ steps.prev_tag.outputs.prev_tag }}..${{ github.ref_name }} --pretty=format:"- %h %s" --no-merges)
+            echo "commit_list<<EOF" >> $GITHUB_OUTPUT
+            echo "$COMMIT_LIST" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "commit_list=No previous tag found" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+          body: |
+            ## Docker Image
+
+            **Version:** ${{ steps.version.outputs.tag_version }}
+            **Environment:** ${{ steps.version.outputs.env_type }}
+            **Git Commit:** ${{ steps.version.outputs.git_sha }}
+            **Build Date:** ${{ steps.version.outputs.build_date }}
+
+            📖 **[View Project Documentation](https://github.com/sgoudelis/ground-station)**
+
+            ### Commits in this release:
+            ${{ steps.commits.outputs.commit_list }}
+
+            ### Pull the Docker image:
+
+            **For AMD64 systems:**
+            ```bash
+            docker pull --platform linux/amd64 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag_version }}
+            ```
+
+            **For ARM64 systems (Raspberry Pi, etc):**
+            ```bash
+            docker pull --platform linux/arm64 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag_version }}
+            ```
+
+            Or pull architecture-specific tags directly:
+            ```bash
+            # AMD64
+            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag_version }}-amd64
+
+            # ARM64
+            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag_version }}-arm64
+            ```
+
+            ### Run the container:
+
+            **Option 1: With SoapySDR Remote Server Discovery (Recommended)**
+
+            Uses host networking to enable mDNS discovery of SoapySDR remote servers:
+
+            ```bash
+            # AMD64
+            docker run -d \
+              --platform linux/amd64 \
+              --network host \
+              --name ground-station \
+              --restart unless-stopped \
+              --device=/dev/bus/usb \
+              --privileged \
+              -v /path/to/data:/app/backend/data \
+              -e GS_ENVIRONMENT=${{ steps.version.outputs.env_type }} \
+              -e GR_BUFFER_TYPE=vmcirc_mmap_tmpfile \
+              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag_version }}
+            ```
+
+            ```bash
+            # ARM64 (Raspberry Pi, etc)
+            docker run -d \
+              --platform linux/arm64 \
+              --network host \
+              --name ground-station \
+              --restart unless-stopped \
+              -v /dev:/dev \
+              --privileged \
+              -v /path/to/data:/app/backend/data \
+              -e GS_ENVIRONMENT=${{ steps.version.outputs.env_type }} \
+              -e GR_BUFFER_TYPE=vmcirc_mmap_tmpfile \
+              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag_version }}
+            ```
+
+            **Option 2: Standard Bridge Mode (No SoapySDR Remote Discovery)**
+
+            Uses standard bridge networking with port mapping:
+
+            ```bash
+            # AMD64
+            docker run -d \
+              --platform linux/amd64 \
+              -p 7000:7000 \
+              --name ground-station \
+              --restart unless-stopped \
+              --device=/dev/bus/usb \
+              --privileged \
+              -v /path/to/data:/app/backend/data \
+              -e GS_ENVIRONMENT=${{ steps.version.outputs.env_type }} \
+              -e GR_BUFFER_TYPE=vmcirc_mmap_tmpfile \
+              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag_version }}
+            ```
+
+            ```bash
+            # ARM64 (Raspberry Pi, etc)
+            docker run -d \
+              --platform linux/arm64 \
+              -p 7000:7000 \
+              --name ground-station \
+              --restart unless-stopped \
+              -v /dev:/dev \
+              --privileged \
+              -v /path/to/data:/app/backend/data \
+              -e GS_ENVIRONMENT=${{ steps.version.outputs.env_type }} \
+              -e GR_BUFFER_TYPE=vmcirc_mmap_tmpfile \
+              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag_version }}
+            ```
+
+            > **Note:** Replace `/path/to/data` with your desired data directory path. Option 1 (host networking) is required for automatic mDNS discovery of SoapySDR remote servers. Option 2 works for local SDRs and all other features. For ARM64, using `-v /dev:/dev` ensures all USB devices are accessible.
+
+            After starting the container, access the web interface at `http://<YOUR_HOST>:7000`
+
+            ### Upgrading an existing container:
+            ```bash
+            # Stop and remove the existing container
+            docker stop ground-station
+            docker rm ground-station
+
+            # Pull the new version
+            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag_version }}
+
+            # Run the container again (use the appropriate command above for your architecture)
+            ```
+
+            ### Multi-arch support:
+            This image supports `linux/amd64` and `linux/arm64` platforms. Docker will automatically pull the correct architecture for your system.

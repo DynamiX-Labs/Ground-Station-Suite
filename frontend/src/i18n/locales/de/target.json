@@ -1,0 +1,164 @@
+{
+  "map_settings": {
+    "title": "Karteneinstellungen",
+    "close": "Schließen"
+  },
+  "map_controls": {
+    "map_settings": "Karteneinstellungen",
+    "go_home": "Zur Heimatposition",
+    "go_to_center": "Zur Kartenmitte",
+    "go_fullscreen": "Vollbild"
+  },
+  "next_passes": {
+    "title": "Nächste Überflüge für {{name}} in den nächsten {{hours}} Stunden",
+    "start": "Start",
+    "end": "Ende",
+    "duration": "Dauer",
+    "progress": "Fortschritt",
+    "distance_aos": "Entfernung bei AOS",
+    "distance_los": "Entfernung bei LOS",
+    "distance_peak": "Entfernung am Höchstpunkt",
+    "max_el": "Max. Elevation",
+    "geo_stat": "GEO Stat",
+    "geo_sync": "GEO Sync",
+    "no_satellite_selected": "Bitte wählen Sie einen Satelliten aus, um Überflüge anzuzeigen"
+  },
+  "rig_control": {
+    "title": "Funkgerätesteuerung",
+    "connected": "Verbunden",
+    "not_connected": "Nicht verbunden",
+    "unknown": "Unbekannt",
+    "failed_start_tracking": "Verfolgung konnte nicht gestartet werden",
+    "on_rig": "Am Funkgerät:",
+    "doppler_shift": "Doppler-Verschiebung:",
+    "transmitted": "Gesendet:",
+    "observed": "Beobachtet:",
+    "connect": "VERBINDEN",
+    "disconnect": "TRENNEN",
+    "track_radio": "FUNKGERÄT VERFOLGEN",
+    "stop": "STOPPEN"
+  },
+  "rotator_control": {
+    "title": "Rotorsteuerung",
+    "failed_start_tracking": "Verfolgung mit dem Rotor konnte nicht gestartet werden",
+    "az": "AZ:",
+    "el": "EL:",
+    "ccw": "⟲ CCW",
+    "cw": "CW ⟳",
+    "up": "↑ HOCH",
+    "down": "RUNTER ↓",
+    "connect": "VERBINDEN",
+    "disconnect": "TRENNEN",
+    "park": "PARKEN",
+    "track": "VERFOLGEN",
+    "stop": "STOPPEN"
+  },
+  "satellite_search": {
+    "search_label": "Satelliten suchen (nach Name oder NORAD-ID)"
+  },
+  "satellite_dropdown": {
+    "label": "Satellit"
+  },
+  "satellite_info": {
+    "title": "Satelliteninformationen",
+    "sections": {
+      "position_data": "POSITIONSDATEN",
+      "orbital_data": "ORBITDATEN",
+      "metadata": "METADATEN"
+    },
+    "labels": {
+      "latitude": "BREITENGRAD",
+      "longitude": "LÄNGENGRAD",
+      "azimuth": "AZIMUT",
+      "elevation": "ELEVATION",
+      "altitude": "HÖHE",
+      "velocity": "GESCHWINDIGKEIT",
+      "geostationary": "GEOSTATIONÄR",
+      "launch_date": "STARTDATUM",
+      "added_to_db": "ZUR DB HINZUGEFÜGT",
+      "countries": "LÄNDER",
+      "alternative_name": "ALTERNATIVER NAME",
+      "satellite_id": "SATELLITEN-ID"
+    },
+    "values": {
+      "yes": "JA",
+      "no": "NEIN",
+      "na": "N/V"
+    }
+  },
+  "errors": {
+    "failed_get_tracking_state": "Verfolgungsstatus konnte nicht abgerufen werden"
+  },
+  "group_dropdown": {
+    "label": "Gruppe",
+    "user_groups": "Benutzerdefinierte Satellitengruppen",
+    "tle_groups": "Orbitquellen-Gruppen",
+    "none_created": "Keine erstellt"
+  },
+  "rig_control_labels": {
+    "rig_label": "Funkgerät",
+    "transmitter_label": "Sender",
+    "no_rig_control": "[keine Funkgerätesteuerung]",
+    "select_rig": "Funkgerät auswählen",
+    "select_sdr": "SDR auswählen",
+    "no_frequency_control": "[keine Frequenzsteuerung]",
+    "select_transmitter": "Sender auswählen",
+    "no_transmitters": "Keine Sender für diesen Satelliten verfügbar"
+  },
+  "rotator_control_labels": {
+    "rotator_label": "Rotor",
+    "none": "Keine",
+    "rotators": "Rotoren",
+    "no_rotator_control": "[keine Rotorsteuerung]",
+    "select_rotator": "Rotor auswählen"
+  },
+  "satellite_selector": {
+    "title": "Satellit auswählen",
+    "stop_tracking": "VERFOLGUNG STOPPEN"
+  },
+  "satellite_map": {
+    "title": "Zielverfolgung"
+  },
+  "pass_timeline": {
+    "title": "Überflugzeitleiste für {{name}} - Nächste {{hours}} Stunden"
+  },
+  "timeline": {
+    "zoomIn": "Vergrößern",
+    "zoomOut": "Verkleinern",
+    "resetZoom": "Zoom zurücksetzen",
+    "sunrise": "Sonnenaufgang",
+    "sunset": "Sonnenuntergang",
+    "now": "JETZT",
+    "noPassesAvailable": "Keine Satellitenüberflüge verfügbar",
+    "noPassesForSelected": "Keine Überflüge für die ausgewählten {{hours}} Stunden",
+    "active": "AKTIV",
+    "start": "Start",
+    "end": "Ende",
+    "duration": "Dauer",
+    "maxElevation": "Max. Elevation",
+    "minDistance": "Min. Entfernung"
+  },
+  "satellite_transmitters": {
+    "title": "Sender",
+    "count": "Anzahl",
+    "sections": {
+      "communication_overview": "KOMMUNIKATIONSÜBERSICHT",
+      "transmitter_details": "SENDER-DETAILS"
+    },
+    "labels": {
+      "total": "GESAMT",
+      "active": "AKTIV",
+      "inactive": "INAKTIV",
+      "frequency_bands": "FREQUENZBÄNDER",
+      "downlink": "Downlink",
+      "mode": "Modus",
+      "baud": "Baud",
+      "band": "Band"
+    },
+    "messages": {
+      "frequency_violation": "⚠️ FREQUENZVERLETZUNG",
+      "no_transmitters": "Keine Sender verfügbar",
+      "no_transmitters_desc": "Dieser Satellit hat keine registrierten Sender."
+    }
+  }
+}

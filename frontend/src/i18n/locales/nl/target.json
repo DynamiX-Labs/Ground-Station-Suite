@@ -1,0 +1,164 @@
+{
+  "map_settings": {
+    "title": "Kaartinstellingen",
+    "close": "Sluiten"
+  },
+  "map_controls": {
+    "map_settings": "Kaartinstellingen",
+    "go_home": "Ga naar startlocatie",
+    "go_to_center": "Ga naar kaartmidden",
+    "go_fullscreen": "Volledig scherm"
+  },
+  "next_passes": {
+    "title": "Volgende passages voor {{name}} in de komende {{hours}} uur",
+    "start": "Start",
+    "end": "Einde",
+    "duration": "Duur",
+    "progress": "Voortgang",
+    "distance_aos": "Afstand bij AOS",
+    "distance_los": "Afstand bij LOS",
+    "distance_peak": "Afstand op hoogtepunt",
+    "max_el": "Max El",
+    "geo_stat": "GEO Stat",
+    "geo_sync": "GEO Sync",
+    "no_satellite_selected": "Selecteer een satelliet om passages te bekijken"
+  },
+  "rig_control": {
+    "title": "Radio rig controle",
+    "connected": "Verbonden",
+    "not_connected": "Niet verbonden",
+    "unknown": "Onbekend",
+    "failed_start_tracking": "Volgen starten mislukt",
+    "on_rig": "Op Rig:",
+    "doppler_shift": "Doppler verschuiving:",
+    "transmitted": "Verzonden:",
+    "observed": "Geobserveerd:",
+    "connect": "VERBINDEN",
+    "disconnect": "VERBREKEN",
+    "track_radio": "RADIO VOLGEN",
+    "stop": "STOPPEN"
+  },
+  "rotator_control": {
+    "title": "Rotator controle",
+    "failed_start_tracking": "Volgen met de rotator starten mislukt",
+    "az": "AZ:",
+    "el": "EL:",
+    "ccw": "⟲ CCW",
+    "cw": "CW ⟳",
+    "up": "↑ OMHOOG",
+    "down": "OMLAAG ↓",
+    "connect": "VERBINDEN",
+    "disconnect": "VERBREKEN",
+    "park": "PARKEREN",
+    "track": "VOLGEN",
+    "stop": "VOLGEN STOPPEN"
+  },
+  "satellite_search": {
+    "search_label": "Zoek satellieten (op naam of NORAD ID)"
+  },
+  "satellite_dropdown": {
+    "label": "Satelliet"
+  },
+  "satellite_info": {
+    "title": "Satelliet Info",
+    "sections": {
+      "position_data": "POSITIEGEGEVENS",
+      "orbital_data": "BAANGEGEVENS",
+      "metadata": "METADATA"
+    },
+    "labels": {
+      "latitude": "BREEDTEGRAAD",
+      "longitude": "LENGTEGRAAD",
+      "azimuth": "AZIMUTH",
+      "elevation": "ELEVATIE",
+      "altitude": "HOOGTE",
+      "velocity": "SNELHEID",
+      "geostationary": "GEOSTATIONAIRE",
+      "launch_date": "LANCEERDATUM",
+      "added_to_db": "TOEGEVOEGD AAN DB",
+      "countries": "LANDEN",
+      "alternative_name": "ALTERNATIEVE NAAM",
+      "satellite_id": "SATELLIET ID"
+    },
+    "values": {
+      "yes": "JA",
+      "no": "NEE",
+      "na": "N.V.T."
+    }
+  },
+  "errors": {
+    "failed_get_tracking_state": "Ophalen van volgstatus mislukt"
+  },
+  "group_dropdown": {
+    "label": "Groep",
+    "user_groups": "Gebruikergedefinieerde satellietgroepen",
+    "tle_groups": "Baanbrongroepen",
+    "none_created": "Geen gemaakt"
+  },
+  "rig_control_labels": {
+    "rig_label": "Radio rig",
+    "transmitter_label": "Zender",
+    "no_rig_control": "[geen radio rig controle]",
+    "select_rig": "selecteer een rig",
+    "select_sdr": "selecteer een SDR",
+    "no_frequency_control": "[geen frequentiecontrole]",
+    "select_transmitter": "selecteer een zender",
+    "no_transmitters": "Geen zenders beschikbaar voor deze satelliet"
+  },
+  "rotator_control_labels": {
+    "rotator_label": "Rotator",
+    "none": "Geen",
+    "rotators": "Rotatoren",
+    "no_rotator_control": "[geen rotator controle]",
+    "select_rotator": "selecteer een rotator"
+  },
+  "satellite_selector": {
+    "title": "Selecteer een satelliet",
+    "stop_tracking": "VOLGEN STOPPEN"
+  },
+  "satellite_map": {
+    "title": "Doel volgen"
+  },
+  "pass_timeline": {
+    "title": "Passage Tijdlijn voor {{name}} - Volgende {{hours}} uur"
+  },
+  "timeline": {
+    "zoomIn": "Inzoomen",
+    "zoomOut": "Uitzoomen",
+    "resetZoom": "Zoom herstellen",
+    "sunrise": "Zonsopgang",
+    "sunset": "Zonsondergang",
+    "now": "NU",
+    "noPassesAvailable": "Geen satellietpassages beschikbaar",
+    "noPassesForSelected": "Geen passages voor de geselecteerde {{hours}} uur",
+    "active": "ACTIEF",
+    "start": "Start",
+    "end": "Einde",
+    "duration": "Duur",
+    "maxElevation": "Max. Elevatie",
+    "minDistance": "Min. Afstand"
+  },
+  "satellite_transmitters": {
+    "title": "Zenders",
+    "count": "Aantal",
+    "sections": {
+      "communication_overview": "COMMUNICATIEOVERZICHT",
+      "transmitter_details": "ZENDERDETAILS"
+    },
+    "labels": {
+      "total": "TOTAAL",
+      "active": "ACTIEF",
+      "inactive": "INACTIEF",
+      "frequency_bands": "FREQUENTIEBANDEN",
+      "downlink": "Downlink",
+      "mode": "Modus",
+      "baud": "Baud",
+      "band": "Band"
+    },
+    "messages": {
+      "frequency_violation": "⚠️ FREQUENTIE OVERTREDING",
+      "no_transmitters": "Geen Zenders Beschikbaar",
+      "no_transmitters_desc": "Deze satelliet heeft geen geregistreerde zenders."
+    }
+  }
+}

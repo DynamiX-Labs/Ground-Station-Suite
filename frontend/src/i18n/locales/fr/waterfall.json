@@ -1,0 +1,123 @@
+{
+  "title": "Paramètres du waterfall",
+  "main_title": "Waterfall & Spectre",
+  "toolbar": {
+    "start_streaming": "Démarrer le streaming",
+    "stop_streaming": "Arrêter le streaming",
+    "toggle_left_panel": "Basculer le panneau latéral gauche",
+    "toggle_right_panel": "Basculer le panneau latéral droit",
+    "toggle_auto_db": "Basculer la plage dB automatique",
+    "auto_scale_once": "Mettre à l'échelle la plage dB une fois",
+    "signal_strength_presets": "Préréglages de force du signal",
+    "preset_strong_signals": "Signaux Forts",
+    "preset_medium_signals": "Signaux Moyens",
+    "preset_weak_signals": "Signaux Faibles",
+    "toggle_fullscreen": "Basculer en plein écran",
+    "zoom_in": "Zoom avant",
+    "zoom_out": "Zoom arrière",
+    "reset_zoom": "Réinitialiser le zoom",
+    "toggle_rotator_lines": "Basculer les lignes pointillées d'événements du rotateur",
+    "toggle_vfo": "Basculer VFO {{number}}",
+    "fft_overflow": "Dépassement de la fréquence de mise à jour FFT — les mises à jour entrantes sont limitées",
+    "bookmark_source_user_defined": "User defined",
+    "bookmark_source_satnogs": "SATNOGS",
+    "bookmark_source_gr_satellites": "gr-satellites",
+    "bookmark_source_satdump": "Satdump"
+  },
+  "frequency": {
+    "title": "Contrôle de fréquence",
+    "go_to_transmitter": "Aller à l'émetteur",
+    "no_frequency_selected": "[aucune fréquence sélectionnée]",
+    "select_transmitter": "sélectionner un émetteur",
+    "frequency_offset": "Décalage de fréquence",
+    "no_frequency_offset": "[aucun décalage de fréquence]",
+    "manual": "Manuel",
+    "select_offset": "sélectionner un décalage",
+    "manual_offset_hz": "Décalage manuel (Hz)",
+    "offsets": {
+      "dk5av_x_band": "DK5AV X-Band (-6800MHz)",
+      "ham_it_up": "Ham-it-Up (+125MHz)",
+      "ku_lnb_10700": "Ku LNB (-10700MHz)",
+      "ku_lnb_9750": "Ku LNB (-9750MHz)",
+      "mmds_s_band": "MMDS S-Band (-1998MHz)",
+      "spyverter": "SpyVerter (+120MHz)"
+    }
+  },
+  "sdr": {
+    "title": "SDR",
+    "sdr_label": "SDR",
+    "no_sdr_selected": "[aucun SDR sélectionné]",
+    "local_sdrs": "SDR locaux",
+    "remote_sdrs": "SDR distants",
+    "other_sdrs": "Autres SDR",
+    "gain_db": "Gain (dB)",
+    "no_gain_selected": "[aucun gain sélectionné]",
+    "sample_rate": "Taux d'échantillonnage",
+    "no_rate_selected": "[aucun taux sélectionné]",
+    "antenna": "Antenne",
+    "no_antenna_selected": "[aucune antenne sélectionnée]",
+    "enable_bias_t": "Activer Bias T",
+    "enable_tuner_agc": "Activer AGC du tuner",
+    "enable_agc": "Activer AGC",
+    "enable_rtl_agc": "Activer RTL AGC",
+    "refresh_params": "Refresh SDR params"
+  },
+  "fft": {
+    "title": "FFT",
+    "fft_size": "Taille FFT",
+    "fft_window": "Fenêtre FFT",
+    "fft_averaging": "Moyennage FFT",
+    "averaging_none": "Aucun",
+    "averaging_samples": "{{count}} échantillons",
+    "color_map": "Carte de couleurs"
+  },
+  "vfo": {
+    "title": "Contrôles VFO",
+    "vfo_number": "VFO {{number}}",
+    "active": "Actif",
+    "listen": "Écouter",
+    "step_size": "Taille du pas",
+    "modulation": "Modulation",
+    "bandwidth": "Bande passante",
+    "custom": "Personnalisé",
+    "squelch": "Squelch",
+    "volume": "Volume",
+    "transcribe": "Transcrire",
+    "configure_gemini": "(Configurer l'API Gemini dans Paramètres)",
+    "transcription_settings": "Paramètres de Transcription",
+    "language": "Langue",
+    "modes": {
+      "none": "Aucun",
+      "am": "AM",
+      "fm": "FM",
+      "fm_stereo": "FM Stéréo",
+      "lsb": "LSB",
+      "usb": "USB",
+      "cw": "CW"
+    },
+    "languages": {
+      "none": "Pas de Traduction",
+      "auto": "Détection automatique",
+      "en": "Anglais",
+      "el": "Grec",
+      "es": "Espagnol",
+      "fr": "Français",
+      "de": "Allemand",
+      "it": "Italien",
+      "pt": "Portugais",
+      "pt-BR": "Portugais (Brésil)",
+      "ru": "Russe",
+      "uk": "Ukrainien",
+      "ja": "Japonais",
+      "zh": "Chinois",
+      "ar": "Arabe"
+    }
+  },
+  "error_dialog": {
+    "title": "Erreur survenue",
+    "close": "Fermer"
+  },
+  "statusbar": {
+    "stopped": "arrêté"
+  }
+}

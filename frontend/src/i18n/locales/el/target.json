@@ -1,0 +1,164 @@
+{
+  "map_settings": {
+    "title": "Ρυθμίσεις Χάρτη",
+    "close": "ΚΛΕΙΣΙΜΟ"
+  },
+  "map_controls": {
+    "map_settings": "Ρυθμίσεις χάρτη",
+    "go_home": "Μετάβαση στο σπίτι",
+    "go_to_center": "Μετάβαση στο κέντρο του χάρτη",
+    "go_fullscreen": "Πλήρης οθόνη"
+  },
+  "next_passes": {
+    "title": "Επόμενες διελεύσεις για {{name}} τις επόμενες {{hours}} ώρες",
+    "start": "Εναρξη",
+    "end": "Λήξη",
+    "duration": "Διάρκεια",
+    "progress": "Πρόοδος",
+    "distance_aos": "Απόσταση στο AOS",
+    "distance_los": "Απόσταση στο LOS",
+    "distance_peak": "Απόσταση στην κορυφή",
+    "max_el": "Μέγ. Υψ.",
+    "geo_stat": "Γεωστατικός",
+    "geo_sync": "Γεωσύγχρονος",
+    "no_satellite_selected": "Παρακαλώ επιλέξτε έναν δορυφόρο για να δείτε τις διελεύσεις"
+  },
+  "rig_control": {
+    "title": "Ελεγχος ραδιοφωνικού rig",
+    "connected": "Συνδεδεμένο",
+    "not_connected": "Δεν έχει συνδεθεί",
+    "unknown": "Αγνωστο",
+    "failed_start_tracking": "Αποτυχία έναρξης παρακολούθησης",
+    "on_rig": "Στη συσκευή:",
+    "doppler_shift": "Μετατόπιση:",
+    "transmitted": "Εκπεμπόμενη:",
+    "observed": "Παρατηρούμενη:",
+    "connect": "ΣΥΝΔΕΣΗ",
+    "disconnect": "ΑΠΟΣΥΝΔΕΣΗ",
+    "track_radio": "ΠΑΡΑΚΟΛΟΥΘΗΣΗ ΡΑΔΙΟΦΩΝΟΥ",
+    "stop": "ΔΙΑΚΟΠΗ"
+  },
+  "rotator_control": {
+    "title": "Ελεγχος περιστροφέα",
+    "failed_start_tracking": "Αποτυχία έναρξης παρακολούθησης με τον περιστροφέα",
+    "az": "ΑΖ:",
+    "el": "ΥΨ:",
+    "ccw": "⟲ ΑΡΙΣΤ",
+    "cw": "ΔΕΞΙ ⟳",
+    "up": "↑ ΠΑΝΩ",
+    "down": "ΚΑΤΩ ↓",
+    "connect": "ΣΥΝΔΕΣΗ",
+    "disconnect": "ΑΠΟΣΥΝΔΕΣΗ",
+    "park": "ΣΤΑΘΜΕΥΣΗ",
+    "track": "ΠΑΡΑΚΟΛΟΥΘΗΣΗ",
+    "stop": "ΔΙΑΚΟΠΗ"
+  },
+  "satellite_search": {
+    "search_label": "Αναζήτηση δορυφόρων (κατά όνομα ή NORAD ID)"
+  },
+  "satellite_dropdown": {
+    "label": "Δορυφόρος"
+  },
+  "satellite_info": {
+    "title": "Πληροφορίες δορυφόρου",
+    "sections": {
+      "position_data": "ΔΕΔΟΜΕΝΑ ΘΕΣΗΣ",
+      "orbital_data": "ΤΡΟΧΙΑΚΑ ΔΕΔΟΜΕΝΑ",
+      "metadata": "ΜΕΤΑΔΕΔΟΜΕΝΑ"
+    },
+    "labels": {
+      "latitude": "ΓΕΩΓΡΑΦΙΚΟ ΠΛΑΤΟΣ",
+      "longitude": "ΓΕΩΓΡΑΦΙΚΟ ΜΗΚΟΣ",
+      "azimuth": "ΑΖΙΜΟΥΘΙΟ",
+      "elevation": "ΥΨΟΣ",
+      "altitude": "ΥΨΟΜΕΤΡΟ",
+      "velocity": "ΤΑΧΥΤΗΤΑ",
+      "geostationary": "ΓΕΩΣΤΑΤΙΚΟΣ",
+      "launch_date": "ΗΜΕΡΟΜΗΝΙΑ ΕΚΤΟΞΕΥΣΗΣ",
+      "added_to_db": "ΠΡΟΣΘΗΚΗ ΣΤΗ ΒΔ",
+      "countries": "ΧΩΡΕΣ",
+      "alternative_name": "ΕΝΑΛΛΑΚΤΙΚΟ ΟΝΟΜΑ",
+      "satellite_id": "ID ΔΟΡΥΦΟΡΟΥ"
+    },
+    "values": {
+      "yes": "ΝΑΙ",
+      "no": "ΟΧΙ",
+      "na": "Μ/Δ"
+    }
+  },
+  "errors": {
+    "failed_get_tracking_state": "Αποτυχία λήψης κατάστασης παρακολούθησης"
+  },
+  "group_dropdown": {
+    "label": "Ομάδα",
+    "user_groups": "Ομάδες δορυφόρων που ορίστηκαν από τον χρήστη",
+    "tle_groups": "Ομάδες δορυφόρων με τροχιακή πηγή",
+    "none_created": "Κανένα δεν έχει δημιουργηθεί"
+  },
+  "rig_control_labels": {
+    "rig_label": "Ραδιοφωνικό rig",
+    "transmitter_label": "Πομποδέκτης",
+    "no_rig_control": "[χωρίς έλεγχο ραδιοφωνικού rig]",
+    "select_rig": "επιλέξτε ένα rig",
+    "select_sdr": "επιλέξτε ένα SDR",
+    "no_frequency_control": "[χωρίς έλεγχο συχνότητας]",
+    "select_transmitter": "επιλέξτε έναν πομποδέκτη",
+    "no_transmitters": "Δεν υπάρχουν διαθέσιμοι πομποδέκτες για αυτόν τον δορυφόρο"
+  },
+  "rotator_control_labels": {
+    "rotator_label": "Περιστροφέας",
+    "none": "Κανένας",
+    "rotators": "Περιστροφείς",
+    "no_rotator_control": "[χωρίς έλεγχο περιστροφέα]",
+    "select_rotator": "επιλέξτε έναν περιστροφέα"
+  },
+  "satellite_selector": {
+    "title": "Επιλέξτε έναν δορυφόρο",
+    "stop_tracking": "ΔΙΑΚΟΠΗ ΠΑΡΑΚΟΛΟΥΘΗΣΗΣ"
+  },
+  "satellite_map": {
+    "title": "Παρακολούθηση στόχου"
+  },
+  "pass_timeline": {
+    "title": "Χρονοδιάγραμμα Διελεύσεων για {{name}} - Επόμενες {{hours}} ώρες"
+  },
+  "timeline": {
+    "zoomIn": "Μεγέθυνση",
+    "zoomOut": "Σμίκρυνση",
+    "resetZoom": "Επαναφορά Μεγέθυνσης",
+    "sunrise": "Ανατολή",
+    "sunset": "Δύση",
+    "now": "ΤΩΡΑ",
+    "noPassesAvailable": "Δεν υπάρχουν διαθέσιμες διελεύσεις δορυφόρου",
+    "noPassesForSelected": "Δεν υπάρχουν διελεύσεις για τις επιλεγμένες {{hours}} ώρες",
+    "active": "ΕΝΕΡΓΗ",
+    "start": "Εναρξη",
+    "end": "Λήξη",
+    "duration": "Διάρκεια",
+    "maxElevation": "Μέγιστο Υψος",
+    "minDistance": "Ελάχιστη Απόσταση"
+  },
+  "satellite_transmitters": {
+    "title": "Πομποδέκτες",
+    "count": "Πλήθος",
+    "sections": {
+      "communication_overview": "ΕΠΙΣΚΟΠΗΣΗ ΕΠΙΚΟΙΝΩΝΙΑΣ",
+      "transmitter_details": "ΛΕΠΤΟΜΕΡΕΙΕΣ ΠΟΜΠΟΔΕΚΤΩΝ"
+    },
+    "labels": {
+      "total": "ΣΥΝΟΛΟ",
+      "active": "ΕΝΕΡΓΟΙ",
+      "inactive": "ΑΝΕΝΕΡΓΟΙ",
+      "frequency_bands": "ΖΩΝΕΣ ΣΥΧΝΟΤΗΤΩΝ",
+      "downlink": "Downlink",
+      "mode": "Λειτουργία",
+      "baud": "Baud",
+      "band": "Ζώνη"
+    },
+    "messages": {
+      "frequency_violation": "⚠️ ΠΑΡΑΒΙΑΣΗ ΣΥΧΝΟΤΗΤΑΣ",
+      "no_transmitters": "Δεν Υπάρχουν Διαθέσιμοι Πομποδέκτες",
+      "no_transmitters_desc": "Αυτός ο δορυφόρος δεν έχει καταχωρημένους πομποδέκτες."
+    }
+  }
+}

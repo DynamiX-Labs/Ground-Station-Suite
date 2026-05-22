@@ -1,0 +1,116 @@
+{
+  "app_name": "Σταθμός Εδάφους",
+  "loading": "Φόρτωση...",
+  "error": "Σφάλμα",
+  "success": "Επιτυχία",
+  "save": "ΑΠΟΘΗΚΕΥΣΗ",
+  "cancel": "ΑΚΥΡΩΣΗ",
+  "delete": "ΔΙΑΓΡΑΦΗ",
+  "edit": "ΕΠΕΞΕΡΓΑΣΙΑ",
+  "add": "ΠΡΟΣΘΗΚΗ",
+  "close": "ΚΛΕΙΣΙΜΟ",
+  "confirm": "ΕΠΙΒΕΒΑΙΩΣΗ",
+  "yes": "Ναι",
+  "no": "Οχι",
+  "search": "Αναζήτηση",
+  "filter": "Φίλτρο",
+  "actions": "Ενέργειες",
+  "name": "Ονομα",
+  "description": "Περιγραφή",
+  "status": "Κατάσταση",
+  "connected": "Συνδεδεμένο",
+  "disconnected": "Αποσυνδεδεμένο",
+  "online": "Σε σύνδεση",
+  "offline": "Εκτός σύνδεσης",
+  "notifications": {
+    "connection": {
+      "connected_to_backend": "Σύνδεση με το backend",
+      "reconnecting_to_backend": "Επανασύνδεση στο backend",
+      "attempt": "Προσπάθεια {{attempt}}",
+      "connection_error": "Σφάλμα σύνδεσης",
+      "lost_connection": "Απώλεια σύνδεσης με το backend"
+    },
+    "sync": {
+      "tle_sync_complete": "Ολοκληρώθηκε ο συγχρονισμός τροχιακών δεδομένων!",
+      "new_items": "Νέα: {{satellites}} δορυφόροι, {{transmitters}} πομποδέκτες",
+      "modified_items": "Τροποποιημένα: {{satellites}} δορυφόροι, {{transmitters}} πομποδέκτες",
+      "removed_items": "Αφαιρέθηκαν: {{satellites}} δορυφόροι, {{transmitters}} πομποδέκτες",
+      "no_changes": "Δεν εντοπίστηκαν αλλαγές"
+    },
+    "rotator": {
+      "connected": "Ο περιστροφέας συνδέθηκε",
+      "disconnected": "Ο περιστροφέας αποσυνδέθηκε"
+    },
+    "radio": {
+      "connected": "Το ραδιόφωνο συνδέθηκε",
+      "disconnected": "Το ραδιόφωνο αποσυνδέθηκε"
+    },
+    "tracking": {
+      "elevation_below_horizon": "Το ύψος του στόχου είναι κάτω από τον ορίζοντα",
+      "azimuth_out_of_bounds": "Το αζιμούθιο του στόχου είναι εκτός ορίων",
+      "below_min_elevation": "Ο στόχος είναι κάτω από το ελάχιστο ύψος",
+      "satellite_changed": "Αλλαξε ο δορυφόρος στόχος",
+      "satellite_info": "{{name}} (NORAD {{noradId}})"
+    }
+  },
+  "humanize": {
+    "bytes": {
+      "bytes": "Bytes",
+      "kb": "KB",
+      "mb": "MB",
+      "gb": "GB",
+      "tb": "TB"
+    },
+    "date": {
+      "just_now": "Μόλις τώρα",
+      "minute_ago": "πριν από {{count}} λεπτό",
+      "minutes_ago": "πριν από {{count}} λεπτά",
+      "hour_ago": "πριν από {{count}} ώρα",
+      "hours_ago": "πριν από {{count}} ώρες",
+      "day_ago": "πριν από {{count}} ημέρα",
+      "days_ago": "πριν από {{count}} ημέρες",
+      "week_ago": "πριν από {{count}} εβδομάδα",
+      "weeks_ago": "πριν από {{count}} εβδομάδες",
+      "month_ago": "πριν από {{count}} μήνα",
+      "months_ago": "πριν από {{count}} μήνες",
+      "year_ago": "πριν από {{count}} έτος",
+      "years_ago": "πριν από {{count}} έτη",
+      "never": "Ποτέ"
+    }
+  },
+  "satellite_status": {
+    "alive": "Ενεργός",
+    "dead": "Ανενεργός",
+    "re_entered": "Επανεισήλθε",
+    "future": "Μελλοντικός",
+    "not_available": "μ/δ"
+  },
+  "transmitter_status": {
+    "active": "Ενεργός",
+    "inactive": "Ανενεργός",
+    "invalid": "Μη έγκυρος"
+  },
+  "map_settings": {
+    "orbit_projection_time": "Χρόνος προβολής τροχιάς",
+    "tile_layer": "Επίπεδο χάρτη",
+    "time_options": {
+      "1_hour": "1 Ωρα",
+      "2_hours": "2 Ωρες",
+      "4_hours": "4 Ωρες",
+      "8_hours": "8 Ωρες",
+      "12_hours": "12 Ωρες",
+      "24_hours": "24 Ωρες"
+    },
+    "satellite_coverage": "Κάλυψη δορυφόρου",
+    "past_orbit_path": "Σχεδίαση προηγούμενης τροχιάς",
+    "future_orbit_path": "Σχεδίαση μελλοντικής τροχιάς",
+    "show_sun": "Εμφάνιση ήλιου",
+    "show_moon": "Εμφάνιση σελήνης",
+    "day_night_separator": "Γραμμή διαχωρισμού ημέρας/νύχτας",
+    "satellite_tooltip": "Πληροφορίες δορυφόρου",
+    "coordinate_grid": "Πλέγμα συντεταγμένων",
+    "footprint_color": "Χρώμα κάλυψης",
+    "past_orbit_color": "Χρώμα γραμμής προηγούμενης τροχιάς",
+    "future_orbit_color": "Χρώμα γραμμής μελλοντικής τροχιάς"
+  }
+}

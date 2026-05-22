@@ -1,0 +1,18 @@
+{
+  "title": "Volgen",
+  "select_satellite": "Selecteer satelliet",
+  "track": "Volgen",
+  "stop_tracking": "Stop volgen",
+  "passes": "Overvluchten",
+  "next_pass": "Volgende overvlucht",
+  "current_pass": "Huidige overvlucht",
+  "aos": "AOS",
+  "los": "LOS",
+  "max_elevation": "Maximale elevatie",
+  "azimuth": "Azimut",
+  "elevation": "Elevatie",
+  "range": "Afstand",
+  "velocity": "Snelheid",
+  "doppler": "Doppler",
+  "frequency": "Frequentie"
+}

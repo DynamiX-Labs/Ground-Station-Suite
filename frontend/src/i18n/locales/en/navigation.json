@@ -1,0 +1,19 @@
+{
+  "tracking": "Tracking",
+  "birds_eye_view": "Birds eye view",
+  "tracking_console": "Tracking console",
+  "waterfall_view": "Waterfall view",
+  "hardware": "Hardware",
+  "rigs": "Rigs",
+  "rotators": "Rotators",
+  "cameras": "Cameras",
+  "sdrs": "SDRs",
+  "satellites": "Satellites",
+  "orbital_sources": "Orbital sources",
+  "groups": "Groups",
+  "settings": "Settings",
+  "preferences": "Preferences",
+  "location": "Location",
+  "maintenance": "Maintenance",
+  "about": "About"
+}
