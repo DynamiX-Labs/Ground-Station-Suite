@@ -130,8 +130,6 @@ The **DynamiX-Labs Ground Station Suite** is built upon a highly decoupled, laye
 The following flow diagram shows how signal acquisition, orbital tracking, real-time DSP, and frame decoding modules integrate under the hood:
 
 ```mermaid
-
-```mermaid
 flowchart TB
     %% Core Styling Directives
     classDef hardware fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#e2e8f0,stroke-dasharray: 5 5
@@ -144,7 +142,7 @@ flowchart TB
 
     %% External Systems
     subgraph Space_Layer ["External Space & Telemetry Interfaces"]
-        SAT((fa:fa-satellite Low Earth Orbit Satellites)):::external
+        SAT(("fa:fa-satellite Low Earth Orbit Satellites")):::external
         CELESTRAK[("fa:fa-cloud CelesTrak TLE Data")]:::external
     end
 
@@ -202,8 +200,6 @@ flowchart TB
         BENCH -.-> FASTAPI
         FASTAPI <--> REACT_DASH
     end
-
-```
 ```
 
 ### Architectural Breakdown (In Word)
