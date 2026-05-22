@@ -457,16 +457,33 @@ The UI also exposes when a value is currently CLI-overridden and whether a chang
 
 ### Building from Source
 
-The repository includes a multi-stage `Dockerfile` that builds the React frontend and a Python environment with SDR libraries.
+The repository includes a multi-stage `Dockerfile` (located inside the `docker/` directory) that builds the React frontend and a Python environment with SDR libraries.
+
+To build the image manually:
 
 ```bash
-docker build -t ground-station .
+docker build -t ground-station -f docker/Dockerfile .
 
 # Option 1: Standard bridge mode (works for local SDRs)
 docker run --rm -p 7000:7000 --device /dev/bus/usb ground-station
 
 # Option 2: Host networking (required for SoapySDR remote server discovery via mDNS)
 docker run --rm --network host --device /dev/bus/usb ground-station
+```
+
+### Running with Docker Compose
+
+For a much easier setup, you can use the newly created `docker-compose.yml` file. This is configured to build and run the ground station seamlessly:
+
+```bash
+# Build and start the container in the background
+docker compose up -d --build
+
+# Follow the container logs
+docker compose logs -f
+
+# Stop the container
+docker compose down
 ```
 
 ### Using Pre-built Docker Images

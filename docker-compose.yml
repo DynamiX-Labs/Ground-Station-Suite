@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  ground-station:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: ground-station
+    restart: unless-stopped
+    privileged: true # Required for direct hardware access to USB SDR transceivers and memory operations
+    
+    # --- Option 1: Standard Bridge Mode with Port Mapping ---
+    # Recommended for local setups and basic network environments.
+    ports:
+      - "7000:7000"
+    
+    # --- Option 2: Host Network Mode ---
+    # REQUIRED if you want automatic discovery of remote SoapySDR servers via mDNS.
+    # To enable, uncomment the line below and comment out the 'ports' block above.
+    # network_mode: host
+
+    # Share USB device access with the container for SDR hardware (RTL-SDR, HackRF, Pluto, USRP)
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"
+    
+    volumes:
+      # Persist configuration, database, satellite assets, recordings, and downloaded SDR images
+      - ./backend/data:/app/backend/data
+      # Mount the system dev directory for general hardware accessibility (vital on Raspberry Pi / ARM64)
+      - /dev:/dev
+      
+    environment:
+      - GS_ENVIRONMENT=production
+      # Configure GNU Radio to use mmap-based buffers to prevent shared memory exhaustion in containers
+      - GR_BUFFER_TYPE=vmcirc_mmap_tmpfile
+      - PYTHONPATH=/app
+      - STATIC_FILES_DIR=/app/frontend/dist
+      - UHD_IMAGES_DIR=/app/backend/data/uhd_images
+      - UHD_CONFIG_DIR=/app/backend/data/uhd_config
